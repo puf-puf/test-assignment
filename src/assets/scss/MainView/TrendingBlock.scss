@@ -1,0 +1,14 @@
+@import '@/assets/scss/colors.scss';
+.film-card__wrapper {
+  position: relative;
+  img {
+    width: 150px;
+    border-radius: 16px;
+  }
+  .film-circle {
+    // position: absolute;
+    // bottom: -20px;
+    // left: 10px;
+    position: relative;
+  }
+}

@@ -1,0 +1,39 @@
+@import '@/assets/scss/colors.scss';
+.search-block {
+  background-color: red;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  max-height: 270px;
+  position: relative;
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+  .search-block__components {
+    width: 90%;
+    position: absolute;
+    top: 15%;
+    color: white;
+    form {
+      width: 100%;
+      position: relative;
+      input {
+        border: none;
+        border-radius: 40px;
+        padding: 13px 26px 13px 26px;
+      }
+      input[type='text'] {
+        width: 95%;
+      }
+      input[type='submit'] {
+        color: white;
+        font-weight: bold;
+        background: linear-gradient(to right, $light-green-color 0%, $light-blue-color 100%);
+        top: 0px;
+        right: -10px;
+        position: absolute;
+      }
+    }
+  }
+}

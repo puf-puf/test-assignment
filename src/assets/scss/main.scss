@@ -1,5 +1,32 @@
 @import './base.scss';
 
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1920px) {
+  section {
+    max-width: 1150px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  section {
+    width: 700px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  section {
+    width: 400px;
+  }
+}
+
 ul {
+  padding: 0px;
   list-style: none;
 }

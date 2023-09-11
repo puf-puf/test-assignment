@@ -1,15 +1,28 @@
 <template>
   <header>
     <div class="nav-wrapper">
-      <img src="../assets/images/logo.svg" alt="" />
-      <nav>
+      <div class="nav-side-left">
+        <img src="../assets/images/logo.svg" alt="" />
+        <nav>
+          <ul>
+            <DropDown title="Movies" :items="[`Popular`, `Now Playing`, `Upcoming`, `Top Rated`]" />
+            <DropDown title="TV Shows" :items="[`Popular`, `Airing Today`, `On TV`, `Top Rated`]" />
+            <DropDown title="People" :items="[`Popular People`]" />
+            <DropDown title="More" :items="[`Discussions`, `Leaderboard`, `Support`, `API`]" />
+          </ul>
+        </nav>
+      </div>
+      <div class="nav-side-right">
+        <iconPlus />
+        <!-- <img :src="iconPlus" alt="" /> -->
+        <button>EN</button>
         <ul>
-          <li>Movies</li>
-          <li>TV Shows</li>
-          <li>People</li>
-          <li>More</li>
+          <li>Login</li>
+          <li>Join TMDB</li>
         </ul>
-        <!-- <div class="test" @mouseover="showPop(true)" @mouseleave="showPop(false)">
+        <iconSearch />
+      </div>
+      <!-- <div class="test" @mouseover="showPop(true)" @mouseleave="showPop(false)">
           <h2>Movies</h2>
           <div v-if="showPopup">
             <RouterLink to="/movie">Popular</RouterLink>
@@ -18,7 +31,6 @@
             <RouterLink to="/movie/now-playing">Top Rated</RouterLink>
           </div>
         </div> -->
-      </nav>
     </div>
     <!-- <div class="wrapper">
       <nav>
@@ -30,6 +42,10 @@
 </template>
 
 <script setup>
+import iconPlus from '../components/icons/iconPlus.vue'
+import iconSearch from '../components/icons/iconSearch.vue'
+import DropDown from './basic-components/DropDown.vue'
+
 // import { ref } from 'vue'
 // const showPopup = ref(false)
 // function showPop(value) {
