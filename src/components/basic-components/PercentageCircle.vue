@@ -1,9 +1,14 @@
 <template>
   <svg :width="props.circleWidth" :height="props.circleWidth" :view-box="`0 0 35 35`">
+    <defs>
+      <linearGradient id="gradient">
+        <!-- <stop offset="10%" stop-color="#FF0000" />
+        <stop offset="30%" stop-color="#00FF00" /> -->
+      </linearGradient>
+    </defs>
     <circle
       :cx="props.circleWidth / 2"
       :cy="props.circleWidth / 2"
-      stroke="green"
       :r="props.radius"
       class="background"
     />
@@ -11,9 +16,16 @@
       :cx="props.circleWidth / 2"
       :cy="props.circleWidth / 2"
       :r="props.radius"
-      class="progress"
+      class="background-circle"
+    />
+    <circle
+      :cx="props.circleWidth / 2"
+      :cy="props.circleWidth / 2"
+      :r="props.radius"
+      class="progress-circle"
       :style="{ strokeDasharray: dashArray, strokeDashoffset: dashOffset }"
       :transform="`rotate(-90 ${props.circleWidth / 2} ${props.circleWidth / 2})`"
+      stroke="url(#gradient)"
     />
     <text x="50%" y="50%" dy="6px" dx="-9px" textAnchor="middle" class="text">
       {{ percentage }}
@@ -22,18 +34,20 @@
 </template>
 
 <script setup>
-const props = defineProps(['percentage', 'circleWidth', 'radius'])
+const props = defineProps(['percentage', 'circleWidth', 'radius', 'backgroundColor'])
+const strokeColor =
+  props.percentage > 30 ? (props.percentage > 70 ? '#008000' : '#FFFF00') : '#FF0000'
 const dashArray = props.radius * Math.PI * 2
 const dashOffset = dashArray - (dashArray * props.percentage) / 100
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/basic-components/PercentageCircle';
-.progress {
-  stroke-width: 3px;
+.progress-circle {
+  stroke: v-bind(strokeColor);
 }
 .background {
-  stroke-width: 3px;
+  fill: v-bind(backgroundColor);
 }
 .text {
   font-size: v-bind(circleWidth); // 17px

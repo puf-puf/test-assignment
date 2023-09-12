@@ -8,10 +8,22 @@
       </div>
     </div>
     <div class="film-cards">
-      <div class="film-card__wrapper">
-        <img src="@/assets/images/film-cover.jpg" alt="" />
-        <div class="film-circle">
-          <PercentageCircle class="film-circle" percentage="20" circleWidth="50" radius="15" />
+      <div>
+        <div class="film-card__wrapper">
+          <img src="@/assets/images/film-cover.jpg" alt="" />
+          <div class="film-circle">
+            <PercentageCircle
+              style="z-index: 2"
+              percentage="29"
+              circleWidth="50"
+              radius="15"
+              backgroundColor="#000"
+            />
+          </div>
+        </div>
+        <div class="film-card__text">
+          <h2>Barbie</h2>
+          <p>Jul 19, 2023</p>
         </div>
       </div>
     </div>
