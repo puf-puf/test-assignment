@@ -1,0 +1,20 @@
+.film-slide {
+  .film-image {
+    position: relative;
+    p {
+      display: none;
+      padding: 6px 0px 6px 6px;
+      width: 244px;
+      background-color: white;
+      position: absolute;
+      left: 0px;
+      bottom: -12px;
+    }
+  }
+  .show {
+    display: block !important;
+  }
+  //   img {
+  //     width: 200px;
+  //   }
+}

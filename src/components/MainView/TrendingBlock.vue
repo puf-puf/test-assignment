@@ -8,13 +8,13 @@
       </div>
     </div>
     <div class="slider-wrapper">
-      <SwiperScrollbar :items="films" />
+      <FilmCardSwiperScrollbar :items="films" />
     </div>
   </section>
 </template>
 
 <script setup>
-import SwiperScrollbar from '../basic-components/SwiperScrollbar.vue'
+import FilmCardSwiperScrollbar from '../basic-components/FilmCardSwiperScrollbar.vue'
 import { ref } from 'vue'
 const activeTab = ref(1)
 function toggleActiveTab(number) {

@@ -1,14 +1,15 @@
 @import '@/assets/scss/colors.scss';
-section {
+.info-section {
   display: flex;
   width: 100%;
   gap: 60px;
-  img {
+  img:first-child {
     box-sizing: content-box;
     padding: 20px;
     border-radius: 12px;
   }
 }
+
 .background {
   width: 100%;
   background-image: url('@/assets/images/selected-film-background.jpg');

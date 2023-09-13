@@ -1,8 +1,8 @@
 <template>
   <div class="background">
     <div class="filter">
-      <section>
-        <img src="@/assets/images/selected-film-cover.jpg" alt="" />
+      <section class="info-section">
+        <img class="title-picture" src="@/assets/images/selected-film-cover.jpg" alt="" />
         <div class="film__text__wrapper">
           <div class="heading__wrapper">
             <div class="main-heading">
