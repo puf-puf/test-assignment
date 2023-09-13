@@ -1,24 +1,33 @@
 @import '@/assets/scss/colors.scss';
-.film-card__wrapper {
-  position: relative;
-  img {
-    width: 150px;
-    border-radius: 16px;
-  }
-  .film-circle {
-    bottom: -25px;
-    left: 10px;
-    position: absolute;
+.trending-block {
+  box-sizing: border-box;
+  padding: 10px 80px 10px 80px;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: start;
+}
+.selector {
+  display: flex;
+  gap: 2px;
+  h3 {
+    border-radius: 8px;
+    padding: 4px;
+    margin: 2px 0px 2px 0px;
   }
 }
-.film-card__text {
+.slider-wrapper {
   width: 100%;
-  margin: 10px 0px 4px 20px;
-  h2 {
-    margin: 2px 0px 4px 0px;
-    font-size: 20px;
-  }
-  p {
-    margin: 0px;
-  }
+  height: 300px;
+}
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.selected {
+  background-color: black;
+  color: white;
 }

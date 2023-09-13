@@ -27,7 +27,7 @@
       :transform="`rotate(-90 ${props.circleWidth / 2} ${props.circleWidth / 2})`"
       stroke="url(#gradient)"
     />
-    <text x="50%" y="50%" dy="6px" dx="-9px" textAnchor="middle" class="text">
+    <text x="50%" y="50%" :dy="dimensionY" :dx="dimensionX" textAnchor="middle" class="text">
       {{ percentage }}
     </text>
   </svg>
@@ -39,6 +39,22 @@ const strokeColor =
   props.percentage > 30 ? (props.percentage > 70 ? '#008000' : '#FFFF00') : '#FF0000'
 const dashArray = props.radius * Math.PI * 2
 const dashOffset = dashArray - (dashArray * props.percentage) / 100
+let fontSize = ''
+let dimensionY = ''
+let dimensionX = ''
+function correctDimensions() {
+  if (props.circleWidth == 50) {
+    dimensionY = '6px'
+    dimensionX = '-9px'
+    fontSize = '17px'
+  }
+  if (props.circleWidth == 70) {
+    dimensionY = '10px'
+    dimensionX = '-15px'
+    fontSize = props.circleWidth / 2.5 + 'px'
+  }
+}
+correctDimensions()
 </script>
 
 <style lang="scss" scoped>
@@ -50,6 +66,6 @@ const dashOffset = dashArray - (dashArray * props.percentage) / 100
   fill: v-bind(backgroundColor);
 }
 .text {
-  font-size: v-bind(circleWidth); // 17px
+  font-size: v-bind('fontSize'); // 17px
 }
 </style>
