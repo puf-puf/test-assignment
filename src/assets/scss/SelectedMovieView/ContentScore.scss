@@ -1,0 +1,20 @@
+.content-score {
+  h3 {
+    margin: 20px 0px 10px 0px;
+  }
+  .score {
+    border-radius: 8px 8px 0px 0px;
+    margin: 0px;
+    font-weight: 800;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+  }
+  .text {
+    padding: 6px 0px 6px 10px;
+    margin: 0px;
+    border-radius: 0px 0px 8px 8px;
+    background-color: lightgray;
+  }
+}
