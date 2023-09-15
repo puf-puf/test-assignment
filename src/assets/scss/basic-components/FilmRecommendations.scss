@@ -1,20 +1,36 @@
-.film-slide {
-  .film-image {
-    position: relative;
-    p {
-      display: none;
-      padding: 6px 0px 6px 6px;
-      width: 244px;
-      background-color: white;
-      position: absolute;
-      left: 0px;
-      bottom: -12px;
+.film-recommendations__wrapper {
+  .film-slide {
+    .film-image {
+      position: relative;
+      img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      p {
+        display: none;
+        padding: 6px 0px 6px 6px;
+        background-color: white;
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        bottom: -12px;
+      }
     }
+    .show {
+      display: block !important;
+    }
+    //   img {
+    //     width: 200px;
+    //   }
   }
-  .show {
-    display: block !important;
+  .info {
+    padding: 0px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  //   img {
-  //     width: 200px;
-  //   }
+  h3,
+  p {
+    margin: 4px 0px 16px 0px;
+  }
 }

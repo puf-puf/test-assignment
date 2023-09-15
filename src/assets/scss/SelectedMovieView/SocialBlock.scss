@@ -1,0 +1,55 @@
+.social {
+  .social-text__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .categories {
+      display: flex;
+      gap: 40px;
+      h3 {
+        cursor: pointer;
+      }
+    }
+    .selected {
+      border-bottom: 3px solid black;
+    }
+  }
+  .review-wrapper {
+    box-shadow: 0px 0px 10px lightgray;
+    padding: 20px;
+  }
+  .author {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    .username,
+    .date {
+      font-weight: 800;
+    }
+    .review-sub-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    img {
+      border-radius: 50%;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 0px;
+    }
+    p {
+      font-size: 16px;
+      margin: 0px;
+    }
+    .rating {
+      background-color: black;
+      width: max-content;
+      border-radius: 10px;
+      padding: 2px 8px 2px 0px;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

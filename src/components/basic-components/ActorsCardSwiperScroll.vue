@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="actor-card__wrapper">
     <swiper
       :space-between="12"
       :scrollbar="{
@@ -9,17 +9,17 @@
       :modules="modules"
     >
       <SwiperSlide v-for="(item, index) in props.items" :key="index">
-        <div>
+        <div class="card__wrapper">
           <img src="@/assets/images/actor-cover.jpg" alt="" />
           <div>
-            <h2>Jason Statham</h2>
+            <h2>Tyrese Gibson</h2>
             <p>Jonas Taylor</p>
           </div>
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div class="view-more">
-          <router-link :to="`/movie/${route.params.id}/cast`">View more</router-link>
+          <router-link :to="`/movie/${route.params.id}/cast`">View more →</router-link>
         </div>
       </SwiperSlide>
     </swiper>

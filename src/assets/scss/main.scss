@@ -1,5 +1,8 @@
 @import './base.scss';
-
+* {
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+  font-family: 'Montserrat', sans-serif;
+}
 main {
   display: flex;
   flex-direction: column;
@@ -29,4 +32,8 @@ main {
 ul {
   padding: 0px;
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }

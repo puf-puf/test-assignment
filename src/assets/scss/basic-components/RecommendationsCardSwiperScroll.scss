@@ -1,3 +1,13 @@
 .swiper-slide {
   width: 80%;
 }
+.swiper {
+  padding: 0px 10px;
+  // padding: 0px 10px;
+  .swiper-scrollbar {
+    height: 8px;
+    .swiper-scrollbar-drag {
+      background-color: black;
+    }
+  }
+}

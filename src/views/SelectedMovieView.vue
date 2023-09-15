@@ -1,9 +1,10 @@
 <template>
   <main>
     <InfoBlock />
-    <div class="wrapper">
+    <div class="movie-wrapper">
       <div class="left-side">
         <ActorsBlock />
+        <SocialBlock />
         <RecommendationsBlock />
       </div>
       <div class="right-side">
@@ -16,12 +17,14 @@
 </template>
 
 <script setup>
+import ContentScoreBlock from '@/components/basic-components/ContentScoreBlock.vue'
+
 import InfoBlock from '@/components/SelectedMovieView/InfoBlock.vue'
 import ActorsBlock from '@/components/SelectedMovieView/ActorsBlock.vue'
 import RecommendationsBlock from '@/components/SelectedMovieView/RecommendationsBlock.vue'
-import DataBlock from '../components/SelectedMovieView/DataBlock.vue'
-import ContentScoreBlock from '../components/SelectedMovieView/ContentScoreBlock.vue'
-import TopContributorsBlock from '../components/SelectedMovieView/TopContributorsBlock.vue'
+import DataBlock from '@/components/SelectedMovieView/DataBlock.vue'
+import TopContributorsBlock from '@/components/SelectedMovieView/TopContributorsBlock.vue'
+import SocialBlock from '@/components/SelectedMovieView/SocialBlock.vue'
 </script>
 
 <style lang="scss">

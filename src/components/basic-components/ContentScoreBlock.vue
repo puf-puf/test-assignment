@@ -13,5 +13,5 @@
 <script setup></script>
 
 <style lang="scss">
-@import '@/assets/scss/SelectedMovieView/ContentScore.scss';
+@import '@/assets/scss/basic-components/ContentScoreBlock.scss';
 </style>
