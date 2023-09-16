@@ -3,6 +3,7 @@ import MainView from '../views/MainView.vue'
 import SelectedMovieView from '../views/SelectedMovieView.vue'
 import SelectedSerieView from '../views/SelectedSerieView.vue'
 import SelectedPersonView from '../views/SelectedPersonView.vue'
+import CategoryMovieView from '@/views/CategoryMovieView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -23,6 +24,11 @@ const router = createRouter({
       path: '/movie/:id',
       name: 'selectedMovie',
       component: SelectedMovieView
+    },
+    {
+      path: '/movies/:id?',
+      name: 'movies',
+      component: CategoryMovieView
     },
     {
       path: '/tv/:id',

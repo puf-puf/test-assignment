@@ -1,0 +1,25 @@
+.pages_wrapper {
+  display: flex;
+  justify-content: center;
+  .active {
+    border: 1px solid black;
+    padding: 4px 4px 4px 4px;
+    font-weight: 600;
+  }
+}
+.pagination {
+  a {
+    color: black;
+    font-size: 18px;
+  }
+  margin: 10px 0px;
+  .first-pages,
+  .last-pages {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  span {
+    margin: 0px 10px;
+  }
+}

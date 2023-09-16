@@ -1,0 +1,31 @@
+.acting__wrapper {
+  padding: 10px 0px;
+  box-shadow: 0px 0px 10px lightgray;
+}
+
+.year__wrapper {
+  border-top: 1px solid #808080;
+  padding: 10px;
+  //   border-bottom: 1px solid black;
+  .single-item__wrapper {
+    margin: 10px 0px;
+    display: flex;
+    align-items: top;
+    gap: 20px;
+    p {
+      margin: 3px 0px;
+    }
+    .dot {
+      width: min-content;
+    }
+    .film {
+      h2 {
+        margin: 0px;
+        font-size: 20px;
+      }
+      p {
+        margin: 2px 10px;
+      }
+    }
+  }
+}

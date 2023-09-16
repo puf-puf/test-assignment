@@ -1,5 +1,10 @@
 .person-wrapper {
+  margin: 20px 0px;
   display: flex;
   gap: 20px;
   justify-content: center;
+  box-sizing: content-box;
+  .person-history__wrapper {
+    width: 63%;
+  }
 }
