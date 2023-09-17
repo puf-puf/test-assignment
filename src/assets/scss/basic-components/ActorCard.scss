@@ -1,0 +1,22 @@
+.actor-card__wrapper {
+  box-shadow: 0px 0px 10px lightgray;
+  margin: 0px;
+  .actor-card__text {
+    padding: 4px 10px 10px 10px;
+
+    h2 {
+      margin: 0px;
+      font-size: 18px;
+    }
+  }
+  .actor-films {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 210px;
+    p {
+      margin: 0px;
+      font-size: 15px;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 @import '../colors.scss';
 .drop-down {
+  z-index: 2;
   position: relative;
   p {
     cursor: pointer;

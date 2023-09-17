@@ -1,5 +1,5 @@
 export default function getPaginationPages(totalPages, quantityFirstPages, quantityLastPages, currentPage = -1) {
-    if (typeof totalPages != 'number') console.log(`123`)
+    if (typeof totalPages != 'number') return;
     if (totalPages <= 0 || quantityFirstPages <= 0 || quantityLastPages <= 0) return
     if (totalPages < quantityFirstPages + quantityLastPages) return
 

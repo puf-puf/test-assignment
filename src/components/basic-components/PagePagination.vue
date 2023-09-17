@@ -2,25 +2,25 @@
   <section>
     <div class="pagination">
       <div class="pages_wrapper">
-        <div v-if="route.params.id <= 5" class="first-pages">
+        <div v-if="route.params.page <= 5" class="first-pages">
           <router-link
             v-for="page in pages.firstPages"
-            :class="{ active: route.params.id == page }"
+            :class="{ active: route.params.page == page }"
             :key="page"
             :to="`${props.routeLink}${page}`"
             >{{ page }}</router-link
           >
         </div>
-        <div v-if="route.params.id > 5" class="first-pages">
+        <div v-if="route.params.page > 5" class="first-pages">
           <router-link
             v-for="page in pages.pagesAround"
-            :class="{ active: route.params.id == page }"
+            :class="{ active: route.params.page == page }"
             :key="page"
             :to="`${props.routeLink}${page}`"
             >{{ page }}</router-link
           >
         </div>
-        <div v-if="!pages.lastPages.includes(Number(route.params.id))" class="last-pages">
+        <div v-if="!pages.lastPages.includes(Number(route.params.page))" class="last-pages">
           <span>...</span>
           <router-link
             v-for="page in pages.lastPages"
@@ -42,12 +42,12 @@ import getPaginationPages from '@/helpers/getPaginationPages.js'
 const route = useRoute()
 const props = defineProps(['pagesLength', 'routeLink'])
 
-let pages = getPaginationPages(props.pagesLength, 7, 2, route.params.id)
+let pages = getPaginationPages(props.pagesLength, 7, 2, route.params.page)
 
 watch(
-  () => route.params.id,
+  () => route.params.page,
   () => {
-    pages = getPaginationPages(props.pagesLength, 7, 2, route.params.id)
+    pages = getPaginationPages(props.pagesLength, 7, 2, route.params.page)
   }
 )
 </script>

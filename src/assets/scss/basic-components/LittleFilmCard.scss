@@ -1,5 +1,6 @@
 .film-card__wrapper {
   position: relative;
+  margin: 0px;
   img {
     // width: 150px;
     width: 100%;
@@ -12,11 +13,16 @@
   }
 }
 .film-card__text {
-  width: 100%;
-  margin: 14px 0px 4px 20px;
+  width: 170px;
+  margin: 14px 0px 4px 10px;
   h2 {
+    display: block;
+    color: black;
     margin: 2px 0px 4px 0px;
     font-size: 20px;
+  }
+  :hover {
+    opacity: 0.8;
   }
   p {
     margin: 0px;
