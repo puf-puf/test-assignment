@@ -8,7 +8,7 @@
       slides-per-view="4"
       :modules="modules"
     >
-      <swiper-slide v-for="(item, index) in items" :key="index">
+      <swiper-slide v-for="(item, index) of items" :key="index">
         <FilmRecommendations :data="item" />
       </swiper-slide>
     </swiper>

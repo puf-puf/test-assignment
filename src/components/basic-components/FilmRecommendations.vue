@@ -6,7 +6,7 @@
         <p :class="{ show: isDateShown }">07/04/2023</p>
       </div>
       <div class="info">
-        <router-link :="`/movie/${data.id}`">
+        <router-link :to="`/movie/${data.id}`">
           <h3>{{ data.title }}</h3>
         </router-link>
         <p>{{ data.vote_count }}%</p>

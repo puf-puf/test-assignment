@@ -13,16 +13,20 @@ export const useFavouritesStore = defineStore('favourites', () => {
     favourites.value = []
   }
   function removeFavourite(id) {
-    favourites.value.filter((e) => e.id != id)
+    favourites.value = favourites.value.filter((e) => e.id != id)
   }
-  function addFavourite(id) {
-    console.log(this.favourites)
-    favourites.value.push(id)
+  function addFavourite(movie) {
+    console.log(favourites.value)
+    if(!favourites.value.find((e) => e.id == movie.id)) favourites.value.push(movie)
+  }
+
+  function isInFavourites(id) {
+    return favourites.value.find((e) => e.id == id)
   }
 
   watch(() => favourites, (state) => {
     localStorage.setItem('movies', JSON.stringify(state))
   }, {deep: true})
 
-  return { favourites, addFavourite, removeFavourite, clearFavourites }
+  return { favourites, isInFavourites, addFavourite, removeFavourite, clearFavourites }
 })

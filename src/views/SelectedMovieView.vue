@@ -45,7 +45,7 @@ import {
 } from '@/services/movies'
 
 import { useRoute } from 'vue-router'
-import { ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const route = useRoute()
 const filmData = ref([])
@@ -54,14 +54,27 @@ const socialLinks = ref([])
 const filmReviews = ref([])
 const filmRecommendations = ref([])
 
-getSpecifiedMovie(route.params.id).then((response) => (filmData.value = response))
-getSpecifiedMovieKeyWords(route.params.id).then((response) => (filmKeywords.value = response))
-getSpecifiedMovieSocialLinks(route.params.id).then((response) => (socialLinks.value = response))
-getSpecifiedMovieReviews(route.params.id).then((response) => (filmReviews.value = response.results))
-getSpecifiedMovieRecommendations(route.params.id).then((response) => {
-  filmRecommendations.value = response.results.filter((e) => e.backdrop_path !== null)
-  console.log(filmRecommendations.value)
-})
+function fetchData() {
+  getSpecifiedMovie(route.params.id).then((response) => (filmData.value = response))
+  getSpecifiedMovieKeyWords(route.params.id).then((response) => (filmKeywords.value = response))
+  getSpecifiedMovieSocialLinks(route.params.id).then((response) => (socialLinks.value = response))
+  getSpecifiedMovieReviews(route.params.id).then(
+    (response) => (filmReviews.value = response.results)
+  )
+  getSpecifiedMovieRecommendations(route.params.id).then(
+    (response) =>
+      (filmRecommendations.value = response.results.filter((e) => e.backdrop_path !== null))
+  )
+}
+
+fetchData()
+
+watch(
+  () => route.params.id,
+  () => {
+    fetchData()
+  }
+)
 </script>
 
 <style lang="scss">

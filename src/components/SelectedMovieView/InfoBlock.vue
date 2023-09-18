@@ -39,7 +39,22 @@
               <p>User Score</p>
             </div>
             <iconList class="rounded" width="30" height="30" fill="white" />
-            <iconHeart class="rounded" width="30" height="30" fill="white" />
+            <iconHeart
+              v-if="store.isInFavourites(data.id)"
+              @click="store.removeFavourite(data.id)"
+              class="rounded"
+              width="30"
+              height="30"
+              fill="red"
+            />
+            <iconHeart
+              v-else
+              @click="store.addFavourite({ id: data.id, name: data.original_title })"
+              class="rounded"
+              width="30"
+              height="30"
+              fill="white"
+            />
             <iconBookmark class="rounded" width="30" height="30" fill="white" />
             <iconStar class="rounded" width="30" height="30" fill="white" />
           </div>
@@ -88,6 +103,9 @@ import iconHeart from '@/components/icons/iconHeart.vue'
 import iconStar from '@/components/icons/iconStar.vue'
 import { watch } from 'vue'
 import { getHoursAndMinutes } from '@/helpers/getHoursAndMinutes'
+import { useFavouritesStore } from '@/stores/favourites.js'
+
+const store = useFavouritesStore()
 const props = defineProps(['data'])
 let backgroundUrl = ''
 

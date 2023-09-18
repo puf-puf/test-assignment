@@ -24,11 +24,13 @@
       </div>
       <div class="data-item">
         <h3>Budget</h3>
-        <p>${{ data[0] }}</p>
+        <p v-if="data[0]">${{ data[0].toLocaleString() }}</p>
+        <p v-else>No Information</p>
       </div>
       <div class="data-item">
         <h3>Revenue</h3>
-        <p>${{ data[1] }}</p>
+        <p v-if="data[1]">${{ data[1].toLocaleString() }}</p>
+        <p v-else>No Information</p>
       </div>
       <div class="keywords">
         <h3>Keywords</h3>
