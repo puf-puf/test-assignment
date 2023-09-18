@@ -1,19 +1,24 @@
 <template>
   <div class="actor-card__wrapper">
-    <img src="@/assets/images/actor-card-cover.jpg" alt="" />
-    <div class="actor-card__text">
-      <h2>Jennifer Connely</h2>
-      <div class="actor-films">
-        <p>
-          <span v-for="(film, index) in films" :key="index">{{ film }},</span>
-        </p>
+    <img :src="`https://image.tmdb.org/t/p/w300/${person.profile_path}`" alt="" />
+
+    <router-link :to="`/person/${person.id}`">
+      <div class="actor-card__text">
+        <h2>{{ person.name }}</h2>
+        <div class="actor-films">
+          <p>
+            <span v-for="(film, index) in person.known_for" :key="index">
+              {{ film.original_title }}
+            </span>
+          </p>
+        </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
 <script setup>
-const films = ['A Beautiful Mind', 'Requiem for I don`t know']
+const props = defineProps(['person'])
 </script>
 
 <style lang="scss">

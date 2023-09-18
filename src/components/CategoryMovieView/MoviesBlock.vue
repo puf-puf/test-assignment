@@ -3,8 +3,8 @@
     <div v-if="props.data" class="movies-block">
       <div class="movies__wrapper">
         <LittleFilmCard
-          v-for="(movie, index) in props.data.results"
-          :key="index"
+          v-for="movie in props.data.results"
+          :key="movie.id"
           :movie="movie"
           class="movie-card"
         />
@@ -20,7 +20,6 @@ import LittleFilmCard from '../basic-components/LittleFilmCard.vue'
 import PagePagination from '../basic-components/PagePagination.vue'
 
 const props = defineProps(['data'])
-const pages = 100
 </script>
 
 <style lang="scss">

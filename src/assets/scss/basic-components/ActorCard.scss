@@ -2,8 +2,8 @@
   box-shadow: 0px 0px 10px lightgray;
   margin: 0px;
   .actor-card__text {
+    color: black;
     padding: 4px 10px 10px 10px;
-
     h2 {
       margin: 0px;
       font-size: 18px;
@@ -17,6 +17,7 @@
     p {
       margin: 0px;
       font-size: 15px;
+      color: black;
     }
   }
 }

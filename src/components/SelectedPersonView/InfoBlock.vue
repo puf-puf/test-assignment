@@ -1,50 +1,49 @@
 <template>
   <section>
-    <div class="person-info">
-      <img src="@/assets/images/selected-person.jpg" alt="" />
+    <div class="person-info" v-if="data">
+      <img :src="`https://image.tmdb.org/t/p/w300/${data[5]}`" alt="" />
       <div class="social">
-        <iconFacebook width="30" height="30" />
-        <iconTwitter width="30" height="30" />
-        <iconInstagram width="30" height="30" />
+        <a :href="`https://www.facebook.com/${socialData[1]}`"
+          ><iconFacebook width="35" height="35"
+        /></a>
+        <a :href="`https://www.twitter.com/${socialData[2]}`"
+          ><iconTwitter width="35" height="35"
+        /></a>
+        <a :href="`https://www.instagram.com/${socialData[0]}`"
+          ><iconInstagram width="35" height="35"
+        /></a>
       </div>
       <div class="personal-info">
         <h2>Personal Info</h2>
         <div class="info">
           <h2>Known For</h2>
-          <p>Acting</p>
-        </div>
-        <div class="info">
-          <h2>Known Credits</h2>
-          <p>71</p>
+          <p>{{ data[0] }}</p>
         </div>
         <div class="info">
           <h2>Gender</h2>
-          <p>Male</p>
+          <p v-if="data[1] == 1">Male</p>
+          <p v-if="data[1] == 2">Female</p>
+          <p v-if="data[1] == 3">Non-binary</p>
+          <p v-else>Not Set / Not Specified</p>
         </div>
         <div class="info">
           <h2>Birthday</h2>
-          <p>1965-11-22 (<span>57</span> years old)</p>
+          <p>
+            {{ data[2] }} (<span>{{ getAge(data[2]) }}</span> years old)
+          </p>
         </div>
         <div class="info">
           <h2>Place of Birth</h2>
-          <p>Copenhagen, Denmark</p>
+          <p>{{ data[4] }}</p>
         </div>
         <div class="info">
           <h2>Also Known As</h2>
-          <p>Mads Dittmann Mikkelsen</p>
-          <p>Mads Dittman Mikkelsen</p>
-          <p>Mads D. Mikkelsen</p>
-          <p>マッツ・ミケルセン</p>
-          <p>Мадс Миккельсен</p>
-          <p>مادس ميكلسن</p>
-          <p>麦斯·米科尔森</p>
-          <p>매즈 미켈슨</p>
-          <p>Мадс Міккельсен</p>
-          <p>Μαντς Μίκελσεν</p>
+          <p v-for="(item, index) in data[3]" :key="index">{{ item }}</p>
         </div>
-        <ContentScoreBlock />
+        <!-- <ContentScoreBlock /> -->
       </div>
     </div>
+    <p v-else>Loading...</p>
   </section>
 </template>
 
@@ -53,6 +52,14 @@ import iconTwitter from '@/components/icons/iconTwitter.vue'
 import iconFacebook from '@/components/icons/iconFacebook.vue'
 import iconInstagram from '@/components/icons/iconInstagram.vue'
 import ContentScoreBlock from '@/components/basic-components/ContentScoreBlock.vue'
+
+const props = defineProps(['data', 'socialData'])
+
+function getAge(date) {
+  const timeStampDiff = Math.abs(Date.parse(date) - Date.now())
+  return Math.ceil(timeStampDiff / (1000 * 60 * 60 * 24 * 365))
+}
+console.log(props)
 </script>
 
 <style lang="scss">

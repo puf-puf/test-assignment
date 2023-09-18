@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export async function getMovies(page) {
+export async function getPersons(page) {
     try {
-        const response = await axios.get('https://api.themoviedb.org/3/movie/popular',{
+        const response = await axios.get('https://api.themoviedb.org/3/person/popular',{
                 headers: {
                     Authorization: `Bearer ${import.meta.env.VITE_API_KEY_READ_TOKEN}`
                 },
@@ -19,10 +19,13 @@ export async function getMovies(page) {
     }
 
 }
-
-export async function getSpecifiedMovie(movie_id) {
+export async function getSpecifiedPerson(person_id) {
+    if(!person_id) {
+        console.error(`Not specified person_id`)
+        return;
+    }
     try {
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}`,{
+        const response = await axios.get(`https://api.themoviedb.org/3/person/${person_id}`,{
                 headers: {
                     Authorization: `Bearer ${import.meta.env.VITE_API_KEY_READ_TOKEN}`
                 },
@@ -37,10 +40,13 @@ export async function getSpecifiedMovie(movie_id) {
         console.log(error)
     }
 }
-
-export async function getSpecifiedMovieKeyWords(movie_id) {
+export async function getPersonsMovieCredits(person_id) {
+    if(!person_id) {
+        console.error(`Not specified person_id`)
+        return;
+    }
     try {
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/keywords`,{
+        const response = await axios.get(`https://api.themoviedb.org/3/person/${person_id}/movie_credits`,{
                 headers: {
                     Authorization: `Bearer ${import.meta.env.VITE_API_KEY_READ_TOKEN}`
                 },
@@ -55,10 +61,13 @@ export async function getSpecifiedMovieKeyWords(movie_id) {
         console.log(error)
     }
 }
-
-export async function getSpecifiedMovieSocialLinks(movie_id) {
+export async function getPersonsTVCredits(person_id) {
+    if(!person_id) {
+        console.error(`Not specified person_id`)
+        return;
+    }
     try {
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/external_ids`,{
+        const response = await axios.get(`https://api.themoviedb.org/3/person/${person_id}/tv_credits`,{
                 headers: {
                     Authorization: `Bearer ${import.meta.env.VITE_API_KEY_READ_TOKEN}`
                 },
@@ -73,10 +82,13 @@ export async function getSpecifiedMovieSocialLinks(movie_id) {
         console.log(error)
     }
 }
-
-export async function getSpecifiedMovieReviews(movie_id) {
+export async function getPersonsCombinedCredits(person_id) {
+    if(!person_id) {
+        console.error(`Not specified person_id`)
+        return;
+    }
     try {
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/reviews`,{
+        const response = await axios.get(`https://api.themoviedb.org/3/person/${person_id}/tv_credits`,{
                 headers: {
                     Authorization: `Bearer ${import.meta.env.VITE_API_KEY_READ_TOKEN}`
                 },
@@ -91,10 +103,13 @@ export async function getSpecifiedMovieReviews(movie_id) {
         console.log(error)
     }
 }
-
-export async function getSpecifiedMovieRecommendations(movie_id) {
+export async function getPersonsSocial(person_id) {
+    if(!person_id) {
+        console.error(`Not specified person_id`)
+        return;
+    }
     try {
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/recommendations`,{
+        const response = await axios.get(`https://api.themoviedb.org/3/person/${person_id}/external_ids`,{
                 headers: {
                     Authorization: `Bearer ${import.meta.env.VITE_API_KEY_READ_TOKEN}`
                 },

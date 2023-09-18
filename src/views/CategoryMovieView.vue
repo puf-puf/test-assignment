@@ -5,11 +5,10 @@
 </template>
 
 <script setup>
+import MoviesBlock from '@/components/CategoryMovieView/MoviesBlock.vue'
+import { getMovies } from '@/services/movies'
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import MoviesBlock from '@/components/CategoryMovieView/MoviesBlock.vue'
-
-import { getMovies } from '@/services/movies'
 
 const route = useRoute()
 const data = ref([])

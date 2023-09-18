@@ -61,7 +61,7 @@ const router = createRouter({
     },
     {
       path: '/persons/:page',
-      name: 'selectedPerson',
+      name: 'persons',
       component: CategoryPersonView
     },
     {

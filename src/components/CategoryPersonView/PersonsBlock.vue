@@ -1,9 +1,12 @@
 <template>
   <section>
-    <div class="actors__wrapper">
-      <ActorCard v-for="(item, index) in items" :key="index" />
+    <div v-if="props.data">
+      <div class="actors__wrapper">
+        <ActorCard v-for="person in props.data.results" :key="person.id" :person="person" />
+      </div>
+      <PagePagination :pagesLength="100" :routeLink="`/persons/`" />
     </div>
-    <PagePagination :pagesLength="pages" :routeLink="`/persons/`" />
+    <p v-else>loading...</p>
   </section>
 </template>
 
@@ -11,8 +14,7 @@
 import ActorCard from '../basic-components/ActorCard.vue'
 import PagePagination from '../basic-components/PagePagination.vue'
 
-const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-const pages = 100
+const props = defineProps(['data'])
 </script>
 
 <style lang="scss">

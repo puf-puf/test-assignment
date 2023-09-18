@@ -1,10 +1,10 @@
 <template>
   <div class="drop-down">
     <div @mouseover="showPopup(true)" @mouseleave="showPopup(false)">
-      <p>{{ props.title }}</p>
+      <p>{{ title }}</p>
       <ul class="drop-down__item-wrapper" v-if="popupIsShown">
-        <li class="drop-down__item" v-for="(item, index) in props.items" :key="index">
-          {{ item }}
+        <li class="drop-down__item" v-for="(item, index) in items" :key="index">
+          <router-link :to="item.link">{{ item.title }}</router-link>
         </li>
       </ul>
     </div>

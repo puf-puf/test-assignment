@@ -8,6 +8,10 @@
   justify-content: space-evenly;
   .nav-side-left {
     display: flex;
+    a {
+      display: flex;
+      align-items: center;
+    }
     img {
       width: 150px;
     }

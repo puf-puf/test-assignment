@@ -1,9 +1,12 @@
 .film-recommendations__wrapper {
   .film-slide {
+    margin: 10px 0px;
+    max-height: 380px;
     .film-image {
       position: relative;
       img {
-        width: 100%;
+        width: 275px;
+        height: 300px;
         border-radius: 10px;
       }
       p {
@@ -27,7 +30,13 @@
     padding: 0px 4px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: top;
+    a {
+      color: black;
+    }
+    :hover {
+      opacity: 0.8;
+    }
   }
   h3,
   p {

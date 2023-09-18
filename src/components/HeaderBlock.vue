@@ -2,13 +2,37 @@
   <header>
     <div class="nav-wrapper">
       <div class="nav-side-left">
-        <img src="../assets/images/logo.svg" alt="" />
+        <router-link to="/"><img src="../assets/images/logo.svg" alt="" /></router-link>
         <nav>
           <ul>
-            <DropDown title="Movies" :items="[`Popular`, `Now Playing`, `Upcoming`, `Top Rated`]" />
-            <DropDown title="TV Shows" :items="[`Popular`, `Airing Today`, `On TV`, `Top Rated`]" />
-            <DropDown title="People" :items="[`Popular People`]" />
-            <DropDown title="More" :items="[`Discussions`, `Leaderboard`, `Support`, `API`]" />
+            <DropDown
+              title="Movies"
+              :items="[
+                { title: `Popular`, link: '/movies' },
+                { title: `Now Playing`, link: '/movies' },
+                { title: `Upcoming`, link: '/movies' },
+                { title: `Top Rated`, link: '/movies' }
+              ]"
+            />
+            <DropDown
+              title="TV Shows"
+              :items="[
+                { title: `Popular`, link: '/tvs' },
+                { title: `Airing Today`, link: '/tvs' },
+                { title: `On TV`, link: '/tvs' },
+                { title: `Top Rated`, link: '/tvs' }
+              ]"
+            />
+            <DropDown title="People" :items="[{ title: `Popular People`, link: '/persons' }]" />
+            <DropDown
+              title="More"
+              :items="[
+                { title: `Discussions`, link: '/' },
+                { title: `Leaderboard`, link: '/' },
+                { title: `Support`, link: '/' },
+                { title: `API`, link: '/' }
+              ]"
+            />
           </ul>
         </nav>
       </div>

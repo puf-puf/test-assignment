@@ -1,13 +1,14 @@
 <template>
   <section>
     <h3>Recommendations</h3>
-    <RecommendationsCardSwiperScroll :items="items" />
+    <RecommendationsCardSwiperScroll :items="data" />
   </section>
 </template>
 
 <script setup>
-const items = [1, 2, 3, 4, 5, 6, 7, 8]
 import RecommendationsCardSwiperScroll from '@/components/basic-components/RecommendationsCardSwiperScroll.vue'
+
+const props = defineProps(['data'])
 </script>
 
 <style lang="scss">

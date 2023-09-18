@@ -1,20 +1,25 @@
 <template>
   <section>
-    <div class="movies-block">
-      <div class="movies__wrapper">
-        <LittleFilmCard v-for="(item, index) in items" :key="index" class="movie-card" />
+    <div v-if="props.data" class="series-block">
+      <div class="series__wrapper">
+        <LittleSerieCard
+          v-for="serie in props.data.results"
+          :key="serie.id"
+          class="serie-card"
+          :serie="serie"
+        />
       </div>
-      <PagePagination :pagesLength="pages" :routeLink="`/tvs/`" />
+      <PagePagination :pagesLength="100" :routeLink="`/tvs/`" />
     </div>
+    <p v-else>loading...</p>
   </section>
 </template>
 
 <script setup>
-import LittleFilmCard from '../basic-components/LittleFilmCard.vue'
-import PagePagination from '../basic-components/PagePagination.vue'
+import LittleSerieCard from '@/components/basic-components/LittleSerieCard.vue'
+import PagePagination from '@/components/basic-components/PagePagination.vue'
 
-const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-const pages = 100
+const props = defineProps(['data'])
 </script>
 
 <style lang="scss">
