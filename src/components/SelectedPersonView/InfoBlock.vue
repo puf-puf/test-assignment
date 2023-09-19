@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="person-info" v-if="data">
-      <img :src="`https://image.tmdb.org/t/p/w300/${data[5]}`" alt="" />
+      <img v-if="data[5]" :src="`https://image.tmdb.org/t/p/w300/${data[5]}`" alt="" />
       <div class="social">
         <a :href="`https://www.facebook.com/${socialData[1]}`"
           ><iconFacebook width="35" height="35"
@@ -59,7 +59,6 @@ function getAge(date) {
   const timeStampDiff = Math.abs(Date.parse(date) - Date.now())
   return Math.ceil(timeStampDiff / (1000 * 60 * 60 * 24 * 365))
 }
-console.log(props)
 </script>
 
 <style lang="scss">

@@ -1,5 +1,5 @@
 <template>
-  <div class="actor-card__wrapper">
+  <div class="actor-card-swipper__wrapper">
     <swiper
       :space-between="12"
       :scrollbar="{
@@ -8,14 +8,9 @@
       :slides-per-view="7"
       :modules="modules"
     >
-      <SwiperSlide v-for="(item, index) in props.items" :key="index">
-        <div class="card__wrapper">
-          <img src="@/assets/images/actor-cover.jpg" alt="" />
-          <div>
-            <h2>Tyrese Gibson</h2>
-            <p>Jonas Taylor</p>
-          </div>
-        </div>
+      <SwiperSlide v-for="(person, index) in data" :key="index">
+        <MovieActorCard v-if="type == 'movie'" :actorData="person" />
+        <SerieActorCard v-if="type == 'tv'" :actorData="person" />
       </SwiperSlide>
       <SwiperSlide>
         <div class="view-more">
@@ -26,15 +21,19 @@
   </div>
 </template>
 <script setup>
+import MovieActorCard from '@/components/basic-components/MovieActorCard.vue'
+import SerieActorCard from '@/components/basic-components/SerieActorCard.vue'
+
 import { useRoute } from 'vue-router'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Scrollbar } from 'swiper/modules'
 import 'swiper/scss'
 import 'swiper/scss/scrollbar'
 
-const props = defineProps(['items'])
+const props = defineProps(['data', 'type'])
 const modules = [Scrollbar]
 const route = useRoute()
+console.log(props)
 </script>
 
 <style lang="scss">

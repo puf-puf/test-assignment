@@ -109,3 +109,42 @@ export async function getSpecifiedMovieRecommendations(movie_id) {
         console.log(error)
     }
 }
+export async function getSpecifiedMovieCredits(movie_id) {
+    try {
+        const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/credits`,{
+                headers: {
+                    Authorization: `Bearer ${import.meta.env.VITE_API_KEY_READ_TOKEN}`
+                },
+                params: {
+                    language: 'en-US',
+                }
+            })
+        const responseData = response.data
+
+        return responseData
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function getTrendingMovies(time_window) {
+    if(time_window !== 'day' && time_window !== 'week') {
+        console.error('Wrong Time Window')
+        return;
+    }
+    try {
+        const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/${time_window}`,{
+                headers: {
+                    Authorization: `Bearer ${import.meta.env.VITE_API_KEY_READ_TOKEN}`
+                },
+                params: {
+                    language: 'en-US',
+                }
+            })
+        const responseData = response.data
+
+        return responseData
+    } catch (error) {
+        console.log(error)
+    }
+}

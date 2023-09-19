@@ -27,7 +27,7 @@ import ActingBlock from '@/components/SelectedPersonView/ActingBlock.vue'
 
 import { parseActionData } from '@/helpers/parseActionData'
 
-import { getSpecifiedPerson, getPersonsMovieCredits, getPersonsSocial } from '@/services/persons'
+import { getSpecifiedPerson, getPersonsCombinedCredits, getPersonsSocial } from '@/services/persons'
 import { useRoute } from 'vue-router'
 import { ref } from 'vue'
 
@@ -39,7 +39,7 @@ const socialData = ref([])
 getSpecifiedPerson(route.params.id).then((response) => {
   infoData.value = response
 })
-getPersonsMovieCredits(route.params.id).then((response) => {
+getPersonsCombinedCredits(route.params.id).then((response) => {
   actingData.value = parseActionData(response.cast)
 })
 getPersonsSocial(route.params.id).then((response) => {

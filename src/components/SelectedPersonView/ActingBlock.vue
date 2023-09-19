@@ -10,7 +10,12 @@
             <iconDotEmpty v-else />
           </div>
           <div class="film">
-            <h2>{{ film.original_title }}</h2>
+            <router-link v-if="film.media_type == 'movie'" :to="`/movie/${film.id}`"
+              ><h2>{{ film.original_title }}</h2>
+            </router-link>
+            <router-link v-if="film.media_type == 'tv'" :to="`/tv/${film.id}`">
+              <h2>{{ film.original_title }}</h2>
+            </router-link>
             <p>
               as <span>{{ film.character }}</span>
             </p>
@@ -32,7 +37,6 @@ const isDotSelected = (value) => {
 }
 
 const props = defineProps(['data'])
-console.log(props)
 </script>
 
 <style lang="scss">

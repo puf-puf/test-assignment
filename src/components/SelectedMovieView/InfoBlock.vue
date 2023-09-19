@@ -4,7 +4,7 @@
       <section class="info-section">
         <img
           class="title-picture"
-          :src="`https://image.tmdb.org/t/p/w300/${data.poster_path}`"
+          :src="`https://image.tmdb.org/t/p/w342/${data.poster_path}`"
           alt="Title Picture"
         />
         <div class="film__text__wrapper">
@@ -31,32 +31,36 @@
           <div class="interactive_wrapper">
             <div class="user-score">
               <PercentageCircle
-                :percentage="data.vote_average"
+                v-if="data.vote_average"
+                :percentage="parseVoteAverage(data.vote_average)"
                 circleWidth="70"
                 radius="30"
                 backgroundColor="#000"
               />
+
               <p>User Score</p>
             </div>
-            <iconList class="rounded" width="30" height="30" fill="white" />
-            <iconHeart
-              v-if="store.isInFavourites(data.id)"
-              @click="store.removeFavourite(data.id)"
-              class="rounded"
-              width="30"
-              height="30"
-              fill="red"
-            />
-            <iconHeart
-              v-else
-              @click="store.addFavourite({ id: data.id, name: data.original_title })"
-              class="rounded"
-              width="30"
-              height="30"
-              fill="white"
-            />
-            <iconBookmark class="rounded" width="30" height="30" fill="white" />
-            <iconStar class="rounded" width="30" height="30" fill="white" />
+            <div class="interactive_buttons">
+              <iconList class="rounded" width="30" height="30" fill="white" />
+              <iconHeart
+                v-if="store.isInFavourites(data.id)"
+                @click="store.removeFavourite(data.id)"
+                width="30"
+                height="30"
+                fill="red"
+              />
+              <iconHeart
+                v-else
+                @click="
+                  store.addFavourite({ id: data.id, name: data.original_title, type: 'movie' })
+                "
+                width="30"
+                height="30"
+                fill="white"
+              />
+              <iconBookmark width="30" height="30" fill="white" />
+              <iconStar width="30" height="30" fill="white" />
+            </div>
           </div>
           <p>{{ data.tagline }}</p>
           <div class="overview">
@@ -102,8 +106,10 @@ import iconBookmark from '@/components/icons/iconBookmark.vue'
 import iconHeart from '@/components/icons/iconHeart.vue'
 import iconStar from '@/components/icons/iconStar.vue'
 import { watch } from 'vue'
+
 import { getHoursAndMinutes } from '@/helpers/getHoursAndMinutes'
 import { useFavouritesStore } from '@/stores/favourites.js'
+import { parseVoteAverage } from '@/helpers/parseVoteAverage'
 
 const store = useFavouritesStore()
 const props = defineProps(['data'])

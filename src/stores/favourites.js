@@ -6,9 +6,6 @@ export const useFavouritesStore = defineStore('favourites', () => {
 
   const moviesInLocalStorage = localStorage.getItem("movies")
 
-  if (moviesInLocalStorage) {
-    favourites.value = JSON.parse(moviesInLocalStorage)._value
-  }
   function clearFavourites() {
     favourites.value = []
   }
@@ -19,9 +16,14 @@ export const useFavouritesStore = defineStore('favourites', () => {
     console.log(favourites.value)
     if(!favourites.value.find((e) => e.id == movie.id)) favourites.value.push(movie)
   }
-
   function isInFavourites(id) {
     return favourites.value.find((e) => e.id == id)
+  }
+
+  // Saving to prevent data loose on Page Reload
+
+  if (moviesInLocalStorage) {
+    favourites.value = JSON.parse(moviesInLocalStorage)._value
   }
 
   watch(() => favourites, (state) => {

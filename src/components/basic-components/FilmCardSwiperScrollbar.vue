@@ -9,7 +9,7 @@
       :modules="modules"
     >
       <SwiperSlide v-for="(item, index) in props.items" :key="index">
-        <LittleFilmCard />
+        <LittleFilmCard :movie="item" />
       </SwiperSlide>
     </swiper>
   </div>

@@ -8,7 +8,8 @@
       </div>
     </div>
     <div class="slider-wrapper">
-      <FilmCardSwiperScrollbar :items="films" />
+      <FilmCardSwiperScrollbar v-if="activeTab == 1" :items="data.day" />
+      <FilmCardSwiperScrollbar v-if="activeTab == 2" :items="data.week" />
     </div>
   </section>
 </template>
@@ -21,7 +22,7 @@ function toggleActiveTab(number) {
   activeTab.value = number
 }
 
-const films = [1, 2, 3, 4, 5, 6, 7, 8]
+const props = defineProps(['data'])
 </script>
 
 <style lang="scss">

@@ -1,13 +1,13 @@
 <template>
   <section>
     <h2>Top Billed Cast</h2>
-    <ActorsCardSwiperScroll :items="actors" />
+    <ActorsCardSwiperScroll :data="data" :type="'movie'" />
   </section>
 </template>
 
 <script setup>
-const actors = [1, 2, 3, 4, 5, 6, 7, 8]
 import ActorsCardSwiperScroll from '../basic-components/ActorsCardSwiperScroll.vue'
+const props = defineProps(['data'])
 </script>
 
 <style lang="scss">
