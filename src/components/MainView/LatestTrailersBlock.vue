@@ -1,21 +1,22 @@
 <template>
-  <div class="recommendations-swiper__wrapper">
+  <div class="trending-swiper__wrapper">
     <swiper
-      :space-between="16"
+      :space-between="12"
       :scrollbar="{
         draggable: true
       }"
-      slides-per-view="4"
+      :slides-per-view="7"
       :modules="modules"
     >
-      <swiper-slide v-for="(item, index) of items" :key="index">
-        <FilmRecommendations :data="item" />
-      </swiper-slide>
+      <SwiperSlide v-for="(item, index) in props.items" :key="index">
+        <LittleFilmCard :movie="item" />
+      </SwiperSlide>
     </swiper>
   </div>
 </template>
 <script setup>
-import FilmRecommendations from '@/components/basic-components/FilmRecommendations.vue'
+import LittleFilmCard from '@/components/basic-components/LittleFilmCard.vue'
+
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Scrollbar } from 'swiper/modules'
 import 'swiper/scss'
@@ -26,5 +27,5 @@ const modules = [Scrollbar]
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/basic-components/RecommendationsCardSwiperScroll.scss';
+@import '@/assets/scss/MainView/LatestTrailersBlock.scss';
 </style>

@@ -3,7 +3,7 @@
     <div class="nav-wrapper">
       <div class="nav-side-left">
         <router-link to="/"><img src="../assets/images/logo.svg" alt="" /></router-link>
-        <nav>
+        <nav v-if="screenWidth >= 900">
           <ul>
             <DropDown
               title="Movies"
@@ -24,17 +24,11 @@
               ]"
             />
             <DropDown title="People" :items="[{ title: `Popular People`, link: '/persons' }]" />
-            <DropDown
-              title="More"
-              :items="[
-                { title: `Discussions`, link: '/' },
-                { title: `Leaderboard`, link: '/' },
-                { title: `Support`, link: '/' },
-                { title: `API`, link: '/' }
-              ]"
-            />
+            <DropDown title="More" :items="[{ title: `Favourites`, link: '/favourites' }]" />
           </ul>
         </nav>
+        <button v-else @click="toggleBurgerMenu">☰</button>
+        <nav v-if="isBurgerShown">123</nav>
       </div>
       <div class="nav-side-right">
         <iconPlus />
@@ -44,40 +38,52 @@
           <li>Login</li>
           <li>Join TMDB</li>
         </ul>
-        <iconSearch />
+        <div class="nav-search__wrapper">
+          <iconClose v-if="store.isSearchShowed == true" @click="store.changeShowedStatus(false)" />
+          <iconSearch v-else @click="store.changeShowedStatus(true)" />
+        </div>
       </div>
-      <!-- <div class="test" @mouseover="showPop(true)" @mouseleave="showPop(false)">
-          <h2>Movies</h2>
-          <div v-if="showPopup">
-            <RouterLink to="/movie">Popular</RouterLink>
-            <RouterLink to="/movie/now-playing">Now Playing</RouterLink>
-            <RouterLink to="/movie/now-playing">Upcoming</RouterLink>
-            <RouterLink to="/movie/now-playing">Top Rated</RouterLink>
-          </div>
-        </div> -->
+      <DropDownSearch v-if="store.isSearchShowed" />
     </div>
-    <!-- <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div> -->
   </header>
 </template>
 
 <script setup>
-import iconPlus from '../components/icons/iconPlus.vue'
-import iconSearch from '../components/icons/iconSearch.vue'
+import iconPlus from '@/components/icons/iconPlus.vue'
+import iconClose from '@/components/icons/iconClose.vue'
+import iconSearch from '@/components/icons/iconSearch.vue'
 import DropDown from './basic-components/DropDown.vue'
+import DropDownSearch from './basic-components/DropDownSearch.vue'
 
-// import { ref } from 'vue'
-// const showPopup = ref(false)
-// function showPop(value) {
-//   showPopup.value = value
-//   console.log(showPopup.value)
-// }
+import { useNavbarStore } from '@/stores/navbar.js'
+
+import { onMounted, onUnmounted, ref } from 'vue'
+
+const screenWidth = ref(window.innerWidth)
+const isBurgerShown = ref(false)
+
+function toggleBurgerMenu() {
+  isBurgerShown.value = !isBurgerShown.value
+}
+
+function handleResize() {
+  screenWidth.value = window.innerWidth
+  if (screenWidth.value >= 900) {
+    isBurgerShown.value = false
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
+
+const store = useNavbarStore()
 </script>
 
 <style lang="scss">
-@import '../assets/scss/HeaderBlock.scss';
+@import '@/assets/scss/HeaderBlock.scss';
 </style>

@@ -12,20 +12,7 @@
         />
       </div>
       <div class="film-favourite">
-        <iconHeart
-          v-if="store.isInFavourites(movie.id)"
-          @click="store.removeFavourite(movie.id)"
-          width="40"
-          height="40"
-          fill="red"
-        />
-        <iconHeart
-          v-else
-          @click="store.addFavourite({ id: movie.id, name: movie.original_title, type: 'movie' })"
-          width="40"
-          height="40"
-          fill="white"
-        />
+        <FavouriteHeart :movie="movie" type="movie" />
       </div>
     </div>
     <div class="film-card__text">
@@ -40,7 +27,7 @@
 <script setup>
 import PercentageCircle from '../basic-components/PercentageCircle.vue'
 import { parseVoteAverage } from '@/helpers/parseVoteAverage'
-import iconHeart from '../icons/iconHeart.vue'
+import FavouriteHeart from '@/components/basic-components/FavouriteHeart.vue'
 
 import { useFavouritesStore } from '@/stores/favourites.js'
 

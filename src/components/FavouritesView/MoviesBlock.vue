@@ -1,17 +1,16 @@
 <template>
   <section>
-    <div>
-      <p v-for="(movie, index) in store.favourites" :key="index">{{ movie }}</p>
+    <div class="favourites__wrapper">
+      <FavouritesFilmCard v-for="film in store.favourites" :key="film.id" :data="film" />
     </div>
-    <button @click="store.clearFavourites()">Clear Favourites</button>
   </section>
 </template>
 
 <script setup>
 import { useFavouritesStore } from '@/stores/favourites.js'
+import FavouritesFilmCard from '@/components/basic-components/FavouritesFilmCard.vue'
 
 const store = useFavouritesStore()
-console.log(store.favourites)
 </script>
 
 <style lang="scss">

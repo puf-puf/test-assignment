@@ -8,14 +8,14 @@
       </div>
     </div>
     <div class="slider-wrapper">
-      <FilmCardSwiperScrollbar v-if="activeTab == 1" :items="data.day" />
-      <FilmCardSwiperScrollbar v-if="activeTab == 2" :items="data.week" />
+      <TrendingCardSwiperScrollbar v-if="activeTab == 1" :items="data.day" />
+      <TrendingCardSwiperScrollbar v-if="activeTab == 2" :items="data.week" />
     </div>
   </section>
 </template>
 
 <script setup>
-import FilmCardSwiperScrollbar from '../basic-components/FilmCardSwiperScrollbar.vue'
+import TrendingCardSwiperScrollbar from '@/components/basic-components/TrendingCardSwiperScrollbar.vue'
 import { ref } from 'vue'
 const activeTab = ref(1)
 function toggleActiveTab(number) {

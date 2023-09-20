@@ -33,7 +33,6 @@ import 'swiper/scss/scrollbar'
 const props = defineProps(['data', 'type'])
 const modules = [Scrollbar]
 const route = useRoute()
-console.log(props)
 </script>
 
 <style lang="scss">

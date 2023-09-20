@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="pagination">
-      <div class="pages_wrapper">
+      <div v-if="pagesLength > 10" class="pages_wrapper">
         <div v-if="route.params.page <= 5" class="first-pages">
           <router-link
             v-for="page in pages.firstPages"
@@ -29,6 +29,15 @@
             >{{ page }}</router-link
           >
         </div>
+      </div>
+      <div v-else class="first-pages pages_wrapper">
+        <router-link
+          v-for="page in pagesLength"
+          :class="{ active: route.params.page == page }"
+          :key="page"
+          :to="`${props.routeLink}${page}`"
+          >{{ page }}</router-link
+        >
       </div>
     </div>
   </section>

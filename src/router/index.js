@@ -7,6 +7,7 @@ import CategoryMovieView from '@/views/CategoryMovieView.vue'
 import CategorySerieView from '@/views/CategorySerieView.vue'
 import CategoryPersonView from '@/views/CategoryPersonView.vue'
 import FavouritesView from '@/views/FavouritesView.vue'
+import SearchView from '@/views/SearchView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -73,9 +74,39 @@ const router = createRouter({
       path: '/favourites',
       name: 'favourites',
       component: FavouritesView
-    }
+    },
+    {
+      path: '/search/:searchQuery/:page',
+      beforeEnter: (to, from, next) => {
+        if (to.params.page && !isNaN(to.params.page)) {
+          next()
+        } else {
+          next('/')
+        }
+      },
+      name: 'search',
+      component: SearchView
+    },
+    {
+      path: '/search',
+      redirect: '/',
+      name: 'EmptySearch',
+    },
+    {
+      path: '/search/:searchQuery',
+      beforeEnter: (to, from, next) => {
+        if (to.params.page && !isNaN(to.params.page)) {
+          console.log(to.params.page)
+          next()
+        } else {
+          next('/')
+        }
+      },
+      name: 'EmptySearchWithName',
+    },
+
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
     // always scroll to top
     return { top: 0 }
   },

@@ -1,0 +1,31 @@
+.movie_search_wrapper {
+  display: flex;
+  gap: 20px;
+  box-shadow: 0px 0px 10px lightgray;
+  border-radius: 20px;
+  margin: 10px 0px;
+  position: relative;
+  img {
+    border-radius: 20px 0px 0px 20px;
+  }
+  .film-favourite {
+    position: absolute;
+    left: 145px;
+  }
+}
+
+.tv_search_wrapper {
+  display: flex;
+  gap: 20px;
+  box-shadow: 0px 0px 10px lightgray;
+  border-radius: 20px;
+  margin: 10px 0px;
+  position: relative;
+  img {
+    border-radius: 20px 0px 0px 20px;
+  }
+  .film-favourite {
+    position: absolute;
+    left: 145px;
+  }
+}

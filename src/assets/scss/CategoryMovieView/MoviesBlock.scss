@@ -1,3 +1,5 @@
+@import '@/assets/scss/breakpoints.scss';
+
 .movies__wrapper {
   margin-top: 30px;
   display: grid;
@@ -9,3 +11,56 @@
     margin: 6px;
   }
 }
+
+@include media-1200 {
+  .movies__wrapper {
+    grid-template-columns: auto auto auto auto;
+
+    .movie-card {
+      width: 190px;
+      h2 {
+        font-size: 16px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+@include media-900 {
+  .movies__wrapper {
+    grid-template-columns: auto auto auto;
+
+    .movie-card {
+      width: 190px;
+      h2 {
+        font-size: 16px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@include media-900 {
+  .movies__wrapper {
+    grid-template-columns: auto auto;
+
+    .movie-card {
+      width: 190px;
+      h2 {
+        font-size: 16px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// @media screen and (max-width: 1200px) {
+//   .movies__wrapper {
+//     grid-template-columns: auto auto auto auto;
+//   }
+// }

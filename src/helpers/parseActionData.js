@@ -1,6 +1,5 @@
 
 export function parseActionData(actingData) {
-    console.log(actingData)
     const parsedData = []
     const sortedData = {}
     actingData.map((e) => {

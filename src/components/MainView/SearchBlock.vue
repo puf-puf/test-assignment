@@ -13,9 +13,13 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
 function performSearch(event) {
   event.preventDefault()
-  console.log(event.target[0].value)
+  if (!event.target[0].value) return
+  router.push(`/search/${event.target[0].value}/1`)
 }
 </script>
 

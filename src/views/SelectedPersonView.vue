@@ -44,7 +44,6 @@ getPersonsCombinedCredits(route.params.id).then((response) => {
 })
 getPersonsSocial(route.params.id).then((response) => {
   socialData.value = response
-  console.log(socialData.value)
 })
 </script>
 

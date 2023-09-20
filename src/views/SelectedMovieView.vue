@@ -69,7 +69,6 @@ function fetchData() {
   )
   getSpecifiedMovieCredits(route.params.id).then((response) => {
     filmActors.value = response.cast.slice(0, 10)
-    console.log(filmActors.value)
   })
 }
 

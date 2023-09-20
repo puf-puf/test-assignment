@@ -11,6 +11,9 @@
           backgroundColor="#000"
         />
       </div>
+      <div class="film-favourite">
+        <FavouriteHeart :movie="serie" type="tv" />
+      </div>
     </div>
     <div class="film-card__text">
       <router-link :to="`/tv/${serie.id}`"
@@ -22,7 +25,8 @@
 </template>
 
 <script setup>
-import PercentageCircle from '../basic-components/PercentageCircle.vue'
+import FavouriteHeart from '@/components/basic-components/FavouriteHeart.vue'
+import PercentageCircle from '@/components/basic-components/PercentageCircle.vue'
 
 const props = defineProps(['serie'])
 </script>

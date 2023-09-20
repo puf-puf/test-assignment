@@ -12,7 +12,6 @@
 
 <script setup>
 const props = defineProps(['actorData'])
-console.log(props.data)
 </script>
 
 <style lang="scss" scoped>

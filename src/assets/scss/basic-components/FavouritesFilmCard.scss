@@ -1,0 +1,18 @@
+.favourite-film-card__wrapper {
+  box-shadow: 0px 0px 10px lightgray;
+  border-radius: 12px;
+  position: relative;
+  .favourite-heart {
+    position: absolute;
+    right: 4px;
+    top: 6px;
+  }
+  img {
+    border-radius: 12px 12px 0px 0px;
+  }
+  h2 {
+    font-size: 18px;
+    width: 160px;
+    margin: 8px 0px 8px 10px;
+  }
+}

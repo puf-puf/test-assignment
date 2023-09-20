@@ -3,6 +3,9 @@
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
   font-family: 'Montserrat', sans-serif;
 }
+body {
+  margin: 0px;
+}
 main {
   display: flex;
   flex-direction: column;
@@ -17,11 +20,11 @@ main {
   }
 }
 
-@media screen and (max-width: 900px) {
-  section {
-    width: 700px;
-  }
-}
+// @media screen and (max-width: 900px) {
+//   section {
+//     width: 700px;
+//   }
+// }
 
 @media screen and (max-width: 500px) {
   section {
