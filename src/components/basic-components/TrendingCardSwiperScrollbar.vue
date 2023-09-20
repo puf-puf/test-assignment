@@ -5,7 +5,7 @@
       :scrollbar="{
         draggable: true
       }"
-      :slides-per-view="7"
+      :slides-per-view="slide_quantity"
       :modules="modules"
     >
       <SwiperSlide v-for="(item, index) in props.items" :key="index">
@@ -22,7 +22,7 @@ import { Scrollbar } from 'swiper/modules'
 import 'swiper/scss'
 import 'swiper/scss/scrollbar'
 
-const props = defineProps(['items'])
+const props = defineProps(['items', 'slide_quantity'])
 const modules = [Scrollbar]
 </script>
 

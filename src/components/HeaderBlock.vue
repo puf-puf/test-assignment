@@ -3,7 +3,7 @@
     <div class="nav-wrapper">
       <div class="nav-side-left">
         <router-link to="/"><img src="../assets/images/logo.svg" alt="" /></router-link>
-        <nav v-if="screenWidth >= 900">
+        <nav v-if="storeWindow.windowWidth >= 900">
           <ul>
             <DropDown
               title="Movies"
@@ -57,29 +57,16 @@ import DropDownSearch from './basic-components/DropDownSearch.vue'
 
 import { useNavbarStore } from '@/stores/navbar.js'
 
-import { onMounted, onUnmounted, ref } from 'vue'
+import { ref } from 'vue'
 
-const screenWidth = ref(window.innerWidth)
+import { useWindowStore } from '@/stores/window.js'
+const storeWindow = useWindowStore()
+
 const isBurgerShown = ref(false)
 
 function toggleBurgerMenu() {
   isBurgerShown.value = !isBurgerShown.value
 }
-
-function handleResize() {
-  screenWidth.value = window.innerWidth
-  if (screenWidth.value >= 900) {
-    isBurgerShown.value = false
-  }
-}
-
-onMounted(() => {
-  window.addEventListener('resize', handleResize)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', handleResize)
-})
 
 const store = useNavbarStore()
 </script>

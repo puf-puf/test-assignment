@@ -5,8 +5,7 @@ export const useWindowStore = defineStore('window', () => {
   const windowWidth = ref(0)
 
   function changeWindowWidth(value) {
-    console.log(value)
-    // windowWidth.value = value
+    windowWidth.value = value.target.outerWidth
   }
 
   return { changeWindowWidth, windowWidth }
