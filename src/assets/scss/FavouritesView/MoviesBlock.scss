@@ -1,7 +1,45 @@
+@import '@/assets/scss/breakpoints.scss';
+
 .favourites__wrapper {
   margin: 30px 0px;
 
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   gap: 40px;
+  img {
+    width: 100%;
+  }
+}
+
+
+@include media-1200 {
+  .favourites__wrapper {
+
+    grid-template-columns: auto auto auto auto;
+  }
+}
+@include media-900 {
+ 
+ .favourites__wrapper {
+
+   grid-template-columns: auto auto auto;
+ }
+}
+
+@include media-700 {
+  .favourites__wrapper {
+    grid-template-columns: auto auto;
+  }
+}
+
+@include media-500 {
+  .favourites__wrapper {
+    gap: 10px;
+    .favourite-film-card__wrapper {
+      width: 190px;
+      h2 {
+        font-size: 16px;
+      }
+    }
+  }
 }

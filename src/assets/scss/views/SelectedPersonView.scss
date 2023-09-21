@@ -1,3 +1,5 @@
+@import '@/assets/scss/breakpoints.scss';
+
 .person-wrapper {
   margin: 20px 0px;
   display: flex;
@@ -6,5 +8,11 @@
   box-sizing: content-box;
   .person-history__wrapper {
     width: 63%;
+  }
+}
+
+@include media-700 {
+  .person-wrapper {
+    flex-direction: column;
   }
 }
