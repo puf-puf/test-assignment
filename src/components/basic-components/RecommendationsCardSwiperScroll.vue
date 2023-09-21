@@ -7,6 +7,10 @@
       }"
       slides-per-view="4"
       :modules="modules"
+      :breakpoints="{
+        700: { slidesPerView: 4 },
+        300: { slidesPerView: 3 }
+      }"
     >
       <swiper-slide v-for="(item, index) of items" :key="index">
         <FilmRecommendations :data="item" />

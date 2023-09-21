@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="recommendations-block__wrapper">
     <h3>Recommendations</h3>
     <RecommendationsCardSwiperScroll :items="data" />
   </section>

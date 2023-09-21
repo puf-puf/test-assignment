@@ -27,17 +27,22 @@
             <DropDown title="More" :items="[{ title: `Favourites`, link: '/favourites' }]" />
           </ul>
         </nav>
-        <button v-else @click="toggleBurgerMenu">☰</button>
-        <nav v-if="isBurgerShown">123</nav>
       </div>
-      <div class="nav-side-right">
+      <div class="nav-burger">
+        <button v-if="storeWindow.windowWidth < 900" @click="toggleBurgerMenu()">☰</button>
+        <nav v-if="isBurgerShown && storeWindow.windowWidth < 900" class="burger-menu">
+          <ul>
+            <li><router-link to="/movies">Movies</router-link></li>
+            <li><router-link to="/tvs">TV Shows</router-link></li>
+            <li><router-link to="/persons">Persons</router-link></li>
+            <li><router-link to="/favourites">Favourites</router-link></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="nav-side-right" v-if="storeWindow.windowWidth >= 900">
         <iconPlus />
         <!-- <img :src="iconPlus" alt="" /> -->
         <button>EN</button>
-        <ul>
-          <li>Login</li>
-          <li>Join TMDB</li>
-        </ul>
         <div class="nav-search__wrapper">
           <iconClose v-if="store.isSearchShowed == true" @click="store.changeShowedStatus(false)" />
           <iconSearch v-else @click="store.changeShowedStatus(true)" />

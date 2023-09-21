@@ -5,8 +5,17 @@
       :scrollbar="{
         draggable: true
       }"
-      :slides-per-view="7"
       :modules="modules"
+      slides-per-view="auto"
+      :breakpoints="{
+        1500: { slidesPerView: 6 },
+        1200: { slidesPerView: 5 },
+        900: { slidesPerView: 4 },
+        700: { slidesPerView: 3, spaceBetween: 8 },
+        500: { slidesPerView: 4 },
+        400: { slidesPerView: 3 },
+        300: { slidesPerView: 2 }
+      }"
     >
       <SwiperSlide v-for="(person, index) in data" :key="index">
         <MovieActorCard v-if="type == 'movie'" :actorData="person" />
@@ -30,7 +39,7 @@ import { Scrollbar } from 'swiper/modules'
 import 'swiper/scss'
 import 'swiper/scss/scrollbar'
 
-const props = defineProps(['data', 'type'])
+const props = defineProps(['data', 'type', 'slide_quantity'])
 const modules = [Scrollbar]
 const route = useRoute()
 </script>

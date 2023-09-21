@@ -1,7 +1,7 @@
 <template>
   <div class="background" :style="{ backgroundImage: `url(${backgroundUrl})` }">
     <div class="filter">
-      <section class="info-section">
+      <section class="movie-info-section">
         <img
           class="title-picture"
           :src="`https://image.tmdb.org/t/p/w342/${data.poster_path}`"
@@ -33,8 +33,8 @@
               <PercentageCircle
                 v-if="data.vote_average"
                 :percentage="parseVoteAverage(data.vote_average)"
-                circleWidth="70"
-                radius="30"
+                :circleWidth="storeWindow.windowWidth > 900 ? 70 : 50"
+                :radius="storeWindow.windowWidth > 900 ? 30 : 20"
                 backgroundColor="#000"
               />
 
@@ -62,37 +62,13 @@
               <iconStar width="30" height="30" fill="white" />
             </div>
           </div>
-          <p>{{ data.tagline }}</p>
+          <p class="tagline">{{ data.tagline }}</p>
           <div class="overview">
             <h2>Overview</h2>
             <p>
               {{ data.overview }}
             </p>
           </div>
-          <!-- <div class="people">
-            <ol>
-              <li>
-                <h4>Ben Wheatley</h4>
-                <p>Director</p>
-              </li>
-              <li>
-                <h4>Ben Wheatley</h4>
-                <p>Director</p>
-              </li>
-              <li>
-                <h4>Ben Wheatley</h4>
-                <p>Director</p>
-              </li>
-              <li>
-                <h4>Ben Wheatley</h4>
-                <p>Director</p>
-              </li>
-              <li>
-                <h4>Ben Wheatley</h4>
-                <p>Director</p>
-              </li>
-            </ol>
-          </div> -->
         </div>
       </section>
     </div>
@@ -110,8 +86,10 @@ import { watch } from 'vue'
 import { getHoursAndMinutes } from '@/helpers/getHoursAndMinutes'
 import { useFavouritesStore } from '@/stores/favourites.js'
 import { parseVoteAverage } from '@/helpers/parseVoteAverage'
+import { useWindowStore } from '@/stores/window'
 
 const store = useFavouritesStore()
+const storeWindow = useWindowStore()
 const props = defineProps(['data'])
 let backgroundUrl = ''
 

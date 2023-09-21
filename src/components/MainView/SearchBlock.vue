@@ -4,9 +4,13 @@
     <div class="search-block__components">
       <h1>Welcome.</h1>
       <h2>Millions of movies, TV shows and people to discover. Explore now.</h2>
-      <form @submit="performSearch">
-        <input type="text" placeholder="Search for a movie, tv show, person......" />
-        <input type="submit" value="Search" />
+      <form class="search-bar" @submit="performSearch">
+        <input
+          class="search-input"
+          type="text"
+          placeholder="Search for a movie, tv show, person......"
+        />
+        <input class="search-button" type="submit" value="Search" />
       </form>
     </div>
   </section>
@@ -23,6 +27,6 @@ function performSearch(event) {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '@/assets/scss/MainView/searchblock.scss';
+<style lang="scss">
+@import '@/assets/scss/MainView/SearchBlock.scss';
 </style>

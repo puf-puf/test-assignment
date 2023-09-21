@@ -1,7 +1,32 @@
+@import '@/assets/scss/breakpoints.scss';
+
 .actors__wrapper {
   margin: 30px 0px;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   gap: 30px;
   justify-content: center;
+}
+
+@include media-1200 {
+  .actors__wrapper {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+@include media-900 {
+  .actors__wrapper {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@include media-700 {
+  .actors__wrapper {
+    grid-template-columns: auto auto;
+  }
+}
+
+@include media-500 {
+  .actors__wrapper {
+    gap: 20px;
+  }
 }

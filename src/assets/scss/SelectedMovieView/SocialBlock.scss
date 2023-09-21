@@ -1,13 +1,18 @@
+@import '@/assets/scss/breakpoints.scss';
 .social {
   .social-text__wrapper {
     display: flex;
     align-items: center;
     gap: 20px;
+    h2 {
+      margin: 8px 0px;
+    }
     .categories {
       display: flex;
       gap: 40px;
       h3 {
         cursor: pointer;
+        margin: 8px 0px;
       }
     }
     .selected {
@@ -53,6 +58,45 @@
       color: white;
       display: flex;
       align-items: center;
+    }
+  }
+}
+
+@include media-700 {
+  .social {
+    padding: 10px 0px 10px 15px;
+    .social-text__wrapper {
+      .categories {
+      }
+    }
+    .review-wrapper {
+      .author {
+        margin: 0px 0px;
+        img {
+          width: 35px;
+          height: 35px;
+        }
+        h2 {
+          font-size: 16px;
+        }
+        .review-sub-info {
+          .rating {
+            svg {
+              width: 22px;
+              height: 22px;
+            }
+            span {
+              font-size: 14px;
+            }
+          }
+          p {
+            font-size: 15px;
+          }
+        }
+      }
+      .review {
+        font-size: 15px;
+      }
     }
   }
 }

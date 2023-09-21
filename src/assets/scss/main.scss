@@ -1,4 +1,6 @@
 @import './base.scss';
+@import './breakpoints.scss';
+
 * {
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
   font-family: 'Montserrat', sans-serif;
@@ -20,13 +22,7 @@ main {
   }
 }
 
-// @media screen and (max-width: 900px) {
-//   section {
-//     width: 700px;
-//   }
-// }
-
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 300px) {
   section {
     width: 400px;
   }

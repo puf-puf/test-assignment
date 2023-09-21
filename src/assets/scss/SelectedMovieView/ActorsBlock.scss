@@ -1,0 +1,12 @@
+@import '@/assets/scss/breakpoints.scss';
+.actors-block__wrapper {
+  padding: 10px;
+  h2 {
+    margin: 0px;
+  }
+}
+// @include media-1500 {
+//   .actors-block__wrapper {
+//     width: 85%;
+//   }
+// }

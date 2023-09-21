@@ -30,30 +30,40 @@
 @include media-900 {
   .movies__wrapper {
     grid-template-columns: auto auto auto;
+  }
+}
 
+@include media-700 {
+  .movies__wrapper {
+    grid-template-columns: auto auto;
+  }
+}
+
+@include media-500 {
+  .movies__wrapper {
+    gap: 10px;
     .movie-card {
-      width: 190px;
+      width: 160px;
       h2 {
-        font-size: 16px;
+        font-size: 14px;
       }
       p {
-        font-size: 14px;
+        font-size: 12px;
       }
     }
   }
 }
 
-@include media-900 {
+@include media-400 {
   .movies__wrapper {
-    grid-template-columns: auto auto;
-
+    gap: 6px;
     .movie-card {
-      width: 190px;
+      width: 150px;
       h2 {
-        font-size: 16px;
+        font-size: 13px;
       }
       p {
-        font-size: 14px;
+        font-size: 11px;
       }
     }
   }

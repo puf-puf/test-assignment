@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="movie-data-block__wrapper">
     <div class="links">
       <a :href="`https://facebook.com/${socialLinks.facebook_id}`"
         ><iconFacebook class="rounded" width="30" height="30"

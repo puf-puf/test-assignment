@@ -1,12 +1,12 @@
+@import '@/assets/scss/breakpoints.scss';
 .film-recommendations__wrapper {
   .film-slide {
     margin: 10px 0px;
-    max-height: 380px;
     .film-image {
       position: relative;
       img {
-        width: 275px;
-        height: 300px;
+        width: 100%;
+        height: 100%;
         border-radius: 10px;
       }
       p {
@@ -41,5 +41,31 @@
   h3,
   p {
     margin: 4px 0px 16px 0px;
+  }
+}
+
+@include media-900 {
+  .film-recommendations__wrapper {
+    .info {
+      h3 {
+        font-size: 15px;
+      }
+      p {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@include media-500 {
+  .film-recommendations__wrapper {
+    .info {
+      h3 {
+        font-size: 13px;
+      }
+      p {
+        font-size: 13px;
+      }
+    }
   }
 }

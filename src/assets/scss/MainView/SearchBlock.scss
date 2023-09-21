@@ -1,33 +1,7 @@
 @import '@/assets/scss/colors.scss';
 @import '@/assets/scss/breakpoints.scss';
 
-@include media-1200 {
-  .search-block {
-    height: 230px;
-  }
-  h1,h2 {
-    font-size: 22px;
-  }
-}
-@include media-900 {
-  .search-block {
-    height: 210px;
-  }
-  h1,h2 {
-    font-size: 19px;
-  }
-  form {
-    width: 10px;
-  }
-  input {
-    border: none;
-    border-radius: 40px;
-    padding: 11px 20px 10px 20px;
-  }
-}
-
 .search-block {
-  background-color: red;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -42,7 +16,7 @@
     position: absolute;
     top: 15%;
     color: white;
-    form {
+    .search-bar {
       width: 100%;
       position: relative;
       input {
@@ -50,16 +24,92 @@
         border-radius: 40px;
         padding: 13px 26px 13px 26px;
       }
-      input[type='text'] {
+      .search-input {
         width: 95%;
       }
-      input[type='submit'] {
+      ::placeholder {
+        padding-left: 6px;
+      }
+      .search-button {
+        text-align: center;
         color: white;
         font-weight: bold;
         background: linear-gradient(to right, $light-green-color 0%, $light-blue-color 100%);
         top: 0px;
         right: -10px;
         position: absolute;
+      }
+    }
+  }
+}
+
+@include media-1200 {
+  h1,
+  h2 {
+    font-size: 22px;
+  }
+}
+@include media-900 {
+  .search-block {
+    height: 210px;
+    .search-block__components {
+      top: 15%;
+      h1,
+      h2 {
+        font-size: 16px;
+      }
+      .search-bar {
+        .search-input {
+          width: 90%;
+        }
+        .search-button {
+          width: 90px;
+        }
+      }
+    }
+  }
+}
+
+@include media-700 {
+  .search-block {
+    height: 180px;
+    .search-block__components {
+      top: 5%;
+      h1,
+      h2 {
+        font-size: 17px;
+      }
+      .search-bar {
+        .search-input {
+          padding: 10px;
+        }
+        ::placeholder {
+          font-size: 12px;
+        }
+        .search-button {
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+@include media-400 {
+  .search-block {
+    height: 180px;
+    .search-block__components {
+      .search-bar {
+        .search-input {
+          padding: 8px;
+        }
+        ::placeholder {
+          font-size: 12px;
+        }
+        .search-button {
+          width: 80px;
+          font-size: 13px;
+          padding: 8px;
+        }
       }
     }
   }
