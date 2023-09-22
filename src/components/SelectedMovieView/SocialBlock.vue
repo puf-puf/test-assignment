@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="social">
+    <div class="movie-social">
       <div class="social-text__wrapper">
         <h2>Social</h2>
         <div class="categories">

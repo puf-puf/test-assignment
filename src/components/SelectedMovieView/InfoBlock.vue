@@ -7,7 +7,7 @@
           :src="`https://image.tmdb.org/t/p/w342/${data.poster_path}`"
           alt="Title Picture"
         />
-        <div class="film__text__wrapper">
+        <div class="movie__text__wrapper">
           <div class="heading__wrapper">
             <div class="main-heading">
               <h1>{{ data.original_title }}</h1>

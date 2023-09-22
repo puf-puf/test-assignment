@@ -1,12 +1,9 @@
 @import '@/assets/scss/breakpoints.scss';
-.social {
+.movie-social {
   .social-text__wrapper {
     display: flex;
     align-items: center;
     gap: 20px;
-    h2 {
-      margin: 8px 0px;
-    }
     .categories {
       display: flex;
       gap: 40px;
@@ -63,7 +60,7 @@
 }
 
 @include media-700 {
-  .social {
+  .movie-social {
     padding: 10px 0px 10px 15px;
     .social-text__wrapper {
       .categories {

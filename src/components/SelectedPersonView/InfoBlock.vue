@@ -1,46 +1,51 @@
 <template>
   <section>
     <div class="person-info" v-if="data">
-      <img v-if="data[5]" :src="`https://image.tmdb.org/t/p/w300/${data[5]}`" alt="" />
-      <div class="social">
-        <a :href="`https://www.facebook.com/${socialData[1]}`"
-          ><iconFacebook width="35" height="35"
-        /></a>
-        <a :href="`https://www.twitter.com/${socialData[2]}`"
-          ><iconTwitter width="35" height="35"
-        /></a>
-        <a :href="`https://www.instagram.com/${socialData[0]}`"
-          ><iconInstagram width="35" height="35"
-        /></a>
+      <div>
+        <h1>{{ data[6] }}</h1>
+        <img v-if="data[5]" :src="`https://image.tmdb.org/t/p/w300/${data[5]}`" alt="" />
       </div>
-      <div class="personal-info">
-        <h2>Personal Info</h2>
-        <div class="info">
-          <h2>Known For</h2>
-          <p>{{ data[0] }}</p>
+      <div>
+        <div class="social">
+          <a :href="`https://www.facebook.com/${socialData[1]}`"
+            ><iconFacebook width="35" height="35"
+          /></a>
+          <a :href="`https://www.twitter.com/${socialData[2]}`"
+            ><iconTwitter width="35" height="35"
+          /></a>
+          <a :href="`https://www.instagram.com/${socialData[0]}`"
+            ><iconInstagram width="35" height="35"
+          /></a>
         </div>
-        <div class="info">
-          <h2>Gender</h2>
-          <p v-if="data[1] == 1">Male</p>
-          <p v-if="data[1] == 2">Female</p>
-          <p v-if="data[1] == 3">Non-binary</p>
-          <p v-else>Not Set / Not Specified</p>
+        <div class="personal-info">
+          <h2>Personal Info</h2>
+          <div class="info">
+            <h2>Known For</h2>
+            <p>{{ data[0] }}</p>
+          </div>
+          <div class="info">
+            <h2>Gender</h2>
+            <p v-if="data[1] == 1">Male</p>
+            <p v-if="data[1] == 2">Female</p>
+            <p v-if="data[1] == 3">Non-binary</p>
+            <p v-else>Not Set / Not Specified</p>
+          </div>
+          <div class="info">
+            <h2>Birthday</h2>
+            <p>
+              {{ data[2] }} (<span>{{ getAge(data[2]) }}</span> years old)
+            </p>
+          </div>
+          <div class="info">
+            <h2>Place of Birth</h2>
+            <p>{{ data[4] }}</p>
+          </div>
+          <div class="info">
+            <h2>Also Known As</h2>
+            <p v-for="(item, index) in data[3]" :key="index">{{ item }}</p>
+          </div>
+          <!-- <ContentScoreBlock /> -->
         </div>
-        <div class="info">
-          <h2>Birthday</h2>
-          <p>
-            {{ data[2] }} (<span>{{ getAge(data[2]) }}</span> years old)
-          </p>
-        </div>
-        <div class="info">
-          <h2>Place of Birth</h2>
-          <p>{{ data[4] }}</p>
-        </div>
-        <div class="info">
-          <h2>Also Known As</h2>
-          <p v-for="(item, index) in data[3]" :key="index">{{ item }}</p>
-        </div>
-        <!-- <ContentScoreBlock /> -->
       </div>
     </div>
     <p v-else>Loading...</p>

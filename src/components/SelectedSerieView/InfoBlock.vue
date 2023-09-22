@@ -1,13 +1,13 @@
 <template>
   <div class="background" :style="{ backgroundImage: `url(${backgroundUrl})` }">
     <div class="filter">
-      <section class="info-section">
+      <section class="serie-info-section">
         <img
           class="title-picture"
-          :src="`https://image.tmdb.org/t/p/w300/${data.poster_path}`"
+          :src="`https://image.tmdb.org/t/p/w342/${data.poster_path}`"
           alt="Title Picture"
         />
-        <div class="film__text__wrapper">
+        <div class="serie__text__wrapper">
           <div class="heading__wrapper">
             <div class="main-heading">
               <h1>{{ data.name }}</h1>

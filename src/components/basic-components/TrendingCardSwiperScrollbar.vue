@@ -5,7 +5,16 @@
       :scrollbar="{
         draggable: true
       }"
-      :slides-per-view="slide_quantity"
+      slides-per-view="auto"
+      :breakpoints="{
+        1500: { slidesPerView: 6 },
+        1200: { slidesPerView: 5 },
+        900: { slidesPerView: 4 },
+        700: { slidesPerView: 3, spaceBetween: 8 },
+        500: { slidesPerView: 4 },
+        400: { slidesPerView: 3 },
+        300: { slidesPerView: 2 }
+      }"
       :modules="modules"
     >
       <SwiperSlide v-for="(item, index) in props.items" :key="index">
@@ -22,7 +31,7 @@ import { Scrollbar } from 'swiper/modules'
 import 'swiper/scss'
 import 'swiper/scss/scrollbar'
 
-const props = defineProps(['items', 'slide_quantity'])
+const props = defineProps(['items'])
 const modules = [Scrollbar]
 </script>
 

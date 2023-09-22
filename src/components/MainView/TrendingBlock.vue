@@ -8,32 +8,8 @@
       </div>
     </div>
     <div class="slider-wrapper">
-      <TrendingCardSwiperScrollbar
-        v-if="activeTab == 1"
-        :slide_quantity="
-          storeWindow.windowWidth >= 900
-            ? 7
-            : storeWindow.windowWidth <= 900 && storeWindow.windowWidth >= 700
-            ? 5
-            : storeWindow.windowWidth >= 400 && storeWindow.windowWidth < 700
-            ? 3
-            : 2
-        "
-        :items="data.day"
-      />
-      <TrendingCardSwiperScrollbar
-        v-if="activeTab == 2"
-        :slide_quantity="
-          storeWindow.windowWidth >= 900
-            ? 7
-            : storeWindow.windowWidth >= 700
-            ? 5
-            : storeWindow.windowWidth >= 400
-            ? 3
-            : 2
-        "
-        :items="data.week"
-      />
+      <TrendingCardSwiperScrollbar v-if="activeTab == 1" :items="data.day" />
+      <TrendingCardSwiperScrollbar v-if="activeTab == 2" :items="data.week" />
     </div>
   </section>
 </template>

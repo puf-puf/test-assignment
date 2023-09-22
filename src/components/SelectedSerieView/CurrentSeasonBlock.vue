@@ -17,7 +17,7 @@
             <p>{{ new Date(data.air_date).getFullYear() }}</p>
             <span>•</span>
             <span v-if="data.episode_count">{{ data.episode_count }}</span>
-            <span v-else="data.episode_number">{{ data.episode_count }}</span>
+            <span v-else>{{ data.episode_count }}</span>
             <p>Episodes</p>
           </div>
         </div>

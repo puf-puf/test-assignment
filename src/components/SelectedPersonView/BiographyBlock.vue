@@ -2,7 +2,6 @@
   <section>
     <div class="biography__wrapper">
       <div class="person-biography">
-        <h2>{{ data[1] }}</h2>
         <h3>Biography</h3>
         <p>
           {{ data[0] }}

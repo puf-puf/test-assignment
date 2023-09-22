@@ -1,3 +1,5 @@
+@import '@/assets/scss/breakpoints.scss';
+
 .season-wrapper {
   box-shadow: 0px 0px 10px lightgray;
   border-radius: 10px;
@@ -44,5 +46,148 @@
   .last-serie {
     border-bottom: 1px solid black;
     cursor: pointer;
+  }
+}
+
+@include media-1200 {
+  .season-wrapper {
+    align-items: normal;
+    .season-info {
+      .season-heading {
+        h2 {
+          font-size: 20px;
+        }
+        .season-data {
+          .rating {
+            svg {
+              width: 24px;
+              height: 24px;
+            }
+            span {
+              font-size: 15px;
+            }
+          }
+          p {
+            font-size: 15px;
+          }
+        }
+      }
+      .season-text {
+        p {
+          font-size: 15px;
+          margin: 6px 0px;
+        }
+      }
+      .season-data {
+        svg {
+          width: 25px;
+          height: 25px;
+        }
+        .last-serie,
+        .date,
+        .final {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+@include media-900 {
+  .season-wrapper {
+    align-items: normal;
+    flex-direction: column;
+    img {
+      height: 180px;
+      border-radius: 12px 12px 0px 0px;
+    }
+    .season-info {
+      padding: 10px;
+      .season-heading {
+        h2 {
+          font-size: 20px;
+        }
+        .season-data {
+          .rating {
+            svg {
+              width: 24px;
+              height: 24px;
+            }
+            span {
+              font-size: 15px;
+            }
+          }
+          p {
+            font-size: 15px;
+          }
+        }
+      }
+      .season-text {
+        p {
+          font-size: 15px;
+          margin: 6px 0px;
+        }
+      }
+      .season-data {
+        svg {
+          width: 25px;
+          height: 25px;
+        }
+        .last-serie,
+        .date,
+        .final {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+@include media-600 {
+  .season-wrapper {
+    align-items: normal;
+    flex-direction: column;
+    img {
+      height: 180px;
+      border-radius: 12px 12px 0px 0px;
+    }
+    .season-info {
+      padding: 10px;
+      .season-heading {
+        h2 {
+          font-size: 20px;
+        }
+        .season-data {
+          .rating {
+            svg {
+              width: 24px;
+              height: 24px;
+            }
+            span {
+              font-size: 15px;
+            }
+          }
+          p {
+            font-size: 15px;
+          }
+        }
+      }
+      .season-text {
+        p {
+          font-size: 15px;
+          margin: 6px 0px;
+        }
+      }
+      .season-data {
+        svg {
+          width: 25px;
+          height: 25px;
+        }
+        .last-serie,
+        .date,
+        .final {
+          font-size: 13px;
+        }
+      }
+    }
   }
 }

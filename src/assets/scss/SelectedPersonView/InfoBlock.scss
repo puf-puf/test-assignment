@@ -1,23 +1,78 @@
+@import '@/assets/scss/breakpoints.scss';
+
 .person-info {
+  @include media-700 {
+    margin: 0px 20px;
+    display: flex;
+    gap: 20px;
+  }
   img {
     border-radius: 10px;
+    @include media-700 {
+      height: 500px;
+    }
+    @include media-600 {
+      width: 250px;
+      height: 380px;
+    }
+    @include media-600 {
+      width: 220px;
+      height: 330px;
+    }
   }
   .social {
     a {
       color: black;
     }
     margin: 14px 0px;
+    @include media-700 {
+      margin: 8px 0px;
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
   }
   .personal-info {
+    @include media-700 {
+      h2 {
+        font-size: 19px;
+        margin: 6px 0px;
+      }
+    }
+    @include media-500 {
+      h2 {
+        font-size: 16px;
+        margin: 6px 0px;
+      }
+    }
     .info {
       margin: 16px 0px;
+      @include media-700 {
+        margin: 10px 0px;
+      }
+      @include media-500 {
+        margin: 8px 0px;
+      }
       h2 {
         font-size: 16px;
         margin: 0px;
+        @include media-700 {
+          font-size: 15px;
+        }
+        @include media-500 {
+          font-size: 14px;
+        }
       }
       p {
         font-size: 15px;
         margin: 6px 0px;
+        @include media-700 {
+          font-size: 14px;
+        }
+        @include media-500 {
+          font-size: 13px;
+        }
       }
     }
   }

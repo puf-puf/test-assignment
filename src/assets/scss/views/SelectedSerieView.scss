@@ -1,5 +1,37 @@
-.serie-wrapper {
+@import '@/assets/scss/breakpoints.scss';
+.movie-wrapper {
   display: flex;
   gap: 20px;
   justify-content: center;
+}
+@include media-1500 {
+  .left-side {
+    width: 900px;
+  }
+}
+@include media-1200 {
+  .left-side {
+    width: 700px;
+  }
+}
+
+@include media-900 {
+  .left-side {
+    width: 500px;
+  }
+}
+@include media-700 {
+  .left-side {
+    width: 440px;
+  }
+}
+@include media-600 {
+  .left-side {
+    width: 97%;
+  }
+  .movie-wrapper {
+    width: 100%;
+    gap: 0px;
+    flex-direction: column-reverse;
+  }
 }

@@ -8,12 +8,13 @@
           infoData.birthday,
           infoData.also_known_as,
           infoData.place_of_birth,
-          infoData.profile_path
+          infoData.profile_path,
+          infoData.name
         ]"
         :socialData="[socialData.facebook_id, socialData.instagram_id, socialData.twitter_id]"
       />
       <div class="person-history__wrapper">
-        <BiographyBlock :data="[infoData.biography, infoData.name]" />
+        <BiographyBlock :data="[infoData.biography]" />
         <ActingBlock :data="[actingData]" />
       </div>
     </div>

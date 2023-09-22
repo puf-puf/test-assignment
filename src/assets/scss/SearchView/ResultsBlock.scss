@@ -1,3 +1,4 @@
+@import '@/assets/scss/breakpoints.scss';
 
 .movie_search_wrapper {
   display: flex;
@@ -6,6 +7,11 @@
   border-radius: 20px;
   margin: 10px 10px;
   position: relative;
+  max-height: 270px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  @include media-600 {
+  }
   img {
     border-radius: 20px 0px 0px 20px;
   }
@@ -22,6 +28,8 @@
   border-radius: 20px;
   margin: 10px 10px;
   position: relative;
+  @include media-600 {
+  }
   img {
     border-radius: 20px 0px 0px 20px;
   }

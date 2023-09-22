@@ -14,5 +14,9 @@
 @include media-700 {
   .person-wrapper {
     flex-direction: column;
+    .person-history__wrapper {
+      padding: 6px;
+      width: 100%;
+    }
   }
 }
