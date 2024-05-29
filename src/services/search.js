@@ -21,6 +21,6 @@ export async function searchForMultiData(search_query, page, include_adult = fal
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }

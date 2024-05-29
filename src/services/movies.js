@@ -15,7 +15,7 @@ export async function getMovies(page) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 
 }
@@ -34,7 +34,7 @@ export async function getSpecifiedMovie(movie_id) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 

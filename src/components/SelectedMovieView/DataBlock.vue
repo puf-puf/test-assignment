@@ -1,13 +1,13 @@
 <template>
   <section class="movie-data-block__wrapper">
     <div class="links">
-      <a :href="`https://facebook.com/${socialLinks.facebook_id}`"
+      <a v-if="socialLinks.facebook_id" :href="`https://facebook.com/${socialLinks.facebook_id}`"
         ><iconFacebook class="rounded" width="30" height="30"
       /></a>
-      <a :href="`https://twitter.com/${socialLinks.twitter_id}`"
+      <a v-if="socialLinks.twitter_id" :href="`https://twitter.com/${socialLinks.twitter_id}`"
         ><iconTwitter class="rounded" width="30" height="30"
       /></a>
-      <a :href="`https://instagram.com/${socialLinks.instagram_id}`"
+      <a v-if="socialLinks.instagram_id" :href="`https://instagram.com/${socialLinks.instagram_id}`"
         ><iconInstagram class="rounded" width="30" height="30"
       /></a>
       <a :href="data[5]"><iconChain class="rounded" width="30" height="30" /></a>
@@ -47,8 +47,7 @@ import iconTwitter from '@/components/icons/iconTwitter.vue'
 import iconInstagram from '@/components/icons/iconInstagram.vue'
 import iconFacebook from '@/components/icons/iconFacebook.vue'
 import iconChain from '@/components/icons/iconChain.vue'
-
-const props = defineProps(['data', 'socialLinks'])
+defineProps(['data', 'socialLinks'])
 </script>
 
 <style lang="scss">

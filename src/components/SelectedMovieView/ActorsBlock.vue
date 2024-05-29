@@ -6,10 +6,8 @@
 </template>
 
 <script setup>
-import ActorsCardSwiperScroll from '../basic-components/ActorsCardSwiperScroll.vue'
-import { useWindowStore } from '@/stores/window'
-const storeWindow = useWindowStore()
-const props = defineProps(['data'])
+import ActorsCardSwiperScroll from '@/components/basic-components/ActorsCardSwiperScroll.vue'
+defineProps(['data'])
 </script>
 
 <style lang="scss">

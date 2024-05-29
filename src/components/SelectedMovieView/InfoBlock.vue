@@ -11,7 +11,7 @@
           <div class="heading__wrapper">
             <div class="main-heading">
               <h1>{{ data.original_title }}</h1>
-              <p>({{ new Date(data.release_date).getFullYear() }})</p>
+              <p>({{ new Date(props.data.release_date).getFullYear() }})</p>
             </div>
             <div class="sub-heading">
               <span>PG-13</span>
@@ -23,8 +23,8 @@
               </ul>
               <span>•</span>
               <p>
-                {{ getHoursAndMinutes(props.data.runtime).hours }}h
-                {{ getHoursAndMinutes(props.data.runtime).minutes }}m
+                {{ time.hours }}h
+                {{ time.minutes }}m
               </p>
             </div>
           </div>
@@ -43,8 +43,8 @@
             <div class="interactive_buttons">
               <iconList class="rounded" width="30" height="30" fill="white" />
               <iconHeart
-                v-if="store.isInFavourites(data.id)"
-                @click="store.removeFavourite(data.id)"
+                v-if="isInFavourites"
+                @click="removeFavourite(data.id)"
                 width="30"
                 height="30"
                 fill="red"
@@ -52,7 +52,7 @@
               <iconHeart
                 v-else
                 @click="
-                  store.addFavourite({ id: data.id, name: data.original_title, type: 'movie' })
+                  addFavourite(data.id, data.original_title, 'movie')
                 "
                 width="30"
                 height="30"
@@ -81,24 +81,29 @@ import iconList from '@/components/icons/iconList.vue'
 import iconBookmark from '@/components/icons/iconBookmark.vue'
 import iconHeart from '@/components/icons/iconHeart.vue'
 import iconStar from '@/components/icons/iconStar.vue'
-import { watch } from 'vue'
-
+import { computed } from 'vue'
 import { getHoursAndMinutes } from '@/helpers/getHoursAndMinutes'
 import { useFavouritesStore } from '@/stores/favourites.js'
 import { parseVoteAverage } from '@/helpers/parseVoteAverage'
 import { useWindowStore } from '@/stores/window'
-
-const store = useFavouritesStore()
+const favouriteStore = useFavouritesStore()
 const storeWindow = useWindowStore()
 const props = defineProps(['data'])
-let backgroundUrl = ''
-
-watch(
-  () => props.data.backdrop_path,
-  () => {
-    backgroundUrl = `https://image.tmdb.org/t/p/w1280/${props.data.backdrop_path}`
-  }
-)
+const isInFavourites = computed(() => {
+  return favouriteStore.isInFavourites(props.data.id)
+})
+const time = computed(() => {
+  return props.data.runtime ? getHoursAndMinutes(props.data.runtime) : {time: undefined, minutes:undefined}
+})
+const backgroundUrl = computed(() => {
+  return props.data.backdrop_path ? `https://image.tmdb.org/t/p/w1280/${props.data.backdrop_path}` : ''
+})
+const addFavourite = (id, name, type) => {
+  favouriteStore.addFavourite({ id, name, type })
+}
+const removeFavourite = (id) => {
+  favouriteStore.removeFavourite(id)
+}
 </script>
 
 <style lang="scss">

@@ -1,9 +1,9 @@
 <template>
   <div class="film-recommendations__wrapper">
     <div class="film-slide">
-      <div class="film-image" @mouseover="show(true)" @mouseleave="show(false)">
+      <div class="film-image">
         <img :src="`https://image.tmdb.org/t/p/w300/${data.poster_path}`" alt="" />
-        <p :class="{ show: isDateShown }">07/04/2023</p>
+        <p class="film-date">07/04/2023</p>
       </div>
       <div class="info">
         <router-link v-if="data.media_type == 'movie'" :to="`/movie/${data.id}`">
@@ -19,14 +19,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { parseVoteAverage } from '@/helpers/parseVoteAverage'
 
-const isDateShown = ref(false)
-function show(value) {
-  isDateShown.value = value
-}
-const props = defineProps(['data'])
+defineProps(['data'])
 </script>
 
 <style lang="scss">

@@ -15,7 +15,7 @@ export async function getPersons(page) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 
 }
@@ -37,7 +37,7 @@ export async function getSpecifiedPerson(person_id) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 export async function getPersonsCombinedCredits(person_id) {
@@ -58,7 +58,7 @@ export async function getPersonsCombinedCredits(person_id) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 export async function getPersonsSocial(person_id) {
@@ -79,6 +79,6 @@ export async function getPersonsSocial(person_id) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }

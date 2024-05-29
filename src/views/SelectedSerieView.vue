@@ -42,7 +42,7 @@ import { useRoute } from 'vue-router'
 
 import InfoBlock from '@/components/SelectedSerieView/InfoBlock.vue'
 import ActorsBlock from '@/components/SelectedSerieView/ActorsBlock.vue'
-import RecommendationsBlock from '@/components/SelectedSerieView/RecommendationsBlock.vue'
+import RecommendationsBlock from '@/components/reusable/RecommendationsBlock.vue'
 import DataBlock from '@/components/SelectedSerieView/DataBlock.vue'
 // import TopContributorsBlock from '@/components/SelectedSerieView/TopContributorsBlock.vue'
 import SocialBlock from '@/components/SelectedSerieView/SocialBlock.vue'

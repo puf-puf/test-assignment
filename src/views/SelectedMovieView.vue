@@ -3,9 +3,9 @@
     <InfoBlock :data="filmData" />
     <div class="movie-wrapper">
       <div class="left-side">
-        <ActorsBlock :data="filmActors" />
-        <SocialBlock :data="filmReviews" />
-        <RecommendationsBlock :data="filmRecommendations" />
+        <ActorsBlock v-if="filmActors" :data="filmActors" />
+        <SocialBlock v-if="filmReviews" :data="filmReviews" />
+        <RecommendationsBlock v-if="filmRecommendations" :data="filmRecommendations" />
       </div>
       <div class="right-side">
         <DataBlock
@@ -33,7 +33,7 @@
 
 import ActorsBlock from '@/components/SelectedMovieView/ActorsBlock.vue'
 import InfoBlock from '@/components/SelectedMovieView/InfoBlock.vue'
-import RecommendationsBlock from '@/components/SelectedMovieView/RecommendationsBlock.vue'
+import RecommendationsBlock from '@/components/reusable/RecommendationsBlock.vue'
 import DataBlock from '@/components/SelectedMovieView/DataBlock.vue'
 import SocialBlock from '@/components/SelectedMovieView/SocialBlock.vue'
 import {
@@ -46,9 +46,10 @@ import {
 } from '@/services/movies'
 
 import { useRoute } from 'vue-router'
-import { ref, watch } from 'vue'
+import { onBeforeMount, ref, watch } from 'vue'
 
 const route = useRoute()
+const isLoading = ref(false)
 const filmData = ref([])
 const filmKeywords = ref([])
 const socialLinks = ref([])
@@ -57,6 +58,7 @@ const filmRecommendations = ref([])
 const filmActors = ref([])
 
 function fetchData() {
+  isLoading.value = true
   getSpecifiedMovie(route.params.id).then((response) => (filmData.value = response))
   getSpecifiedMovieKeyWords(route.params.id).then((response) => (filmKeywords.value = response))
   getSpecifiedMovieSocialLinks(route.params.id).then((response) => (socialLinks.value = response))
@@ -70,16 +72,14 @@ function fetchData() {
   getSpecifiedMovieCredits(route.params.id).then((response) => {
     filmActors.value = response.cast.slice(0, 10)
   })
+  isLoading.value = false
 }
 
-fetchData()
+watch(() => route.params.id, () => fetchData())
+onBeforeMount(() => {
+  fetchData()
+})
 
-watch(
-  () => route.params.id,
-  () => {
-    fetchData()
-  }
-)
 </script>
 
 <style lang="scss">

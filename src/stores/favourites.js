@@ -13,7 +13,6 @@ export const useFavouritesStore = defineStore('favourites', () => {
     favourites.value = favourites.value.filter((e) => e.id != id)
   }
   function addFavourite(movie) {
-    console.log(favourites.value)
     if(!favourites.value.find((e) => e.id == movie.id)) favourites.value.push(movie)
   }
   function isInFavourites(id) {

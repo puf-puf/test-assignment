@@ -15,12 +15,12 @@ export async function getSeries(page) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 
 }
 export async function getSpecifiedSerie(series_id) {
-    if(!series_id) console.log(`No Series ID`)
+    if(!series_id) console.error(`No Series ID`)
     try {
         const response = await axios.get(`https://api.themoviedb.org/3/tv/${series_id}`,{
                 headers: {
@@ -34,11 +34,11 @@ export async function getSpecifiedSerie(series_id) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 export async function getSpecifiedSerieCredits(series_id) {
-    if(!series_id) console.log(`No Series ID`)
+    if(!series_id) console.error(`No Series ID`)
     try {
         const response = await axios.get(`https://api.themoviedb.org/3/tv/${series_id}/aggregate_credits`,{
                 headers: {
@@ -52,11 +52,11 @@ export async function getSpecifiedSerieCredits(series_id) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 export async function getSpecifiedSerieReviews(series_id) {
-    if(!series_id) console.log(`No Series ID`)
+    if(!series_id) console.error(`No Series ID`)
     try {
         const response = await axios.get(`https://api.themoviedb.org/3/tv/${series_id}/reviews`,{
                 headers: {
@@ -70,11 +70,11 @@ export async function getSpecifiedSerieReviews(series_id) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 export async function getSpecifiedSerieRecommendations(series_id) {
-    if(!series_id) console.log(`No Series ID`)
+    if(!series_id) console.error(`No Series ID`)
     try {
         const response = await axios.get(`https://api.themoviedb.org/3/tv/${series_id}/recommendations`,{
                 headers: {
@@ -88,11 +88,11 @@ export async function getSpecifiedSerieRecommendations(series_id) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 export async function getSpecifiedSerieKeyWords(series_id) {
-    if(!series_id) console.log(`No Series ID`)
+    if(!series_id) console.error(`No Series ID`)
     try {
         const response = await axios.get(`https://api.themoviedb.org/3/tv/${series_id}/keywords`,{
                 headers: {
@@ -106,11 +106,11 @@ export async function getSpecifiedSerieKeyWords(series_id) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 export async function getSpecifiedSerieSocialLinks(series_id) {
-    if(!series_id) console.log(`No Series ID`)
+    if(!series_id) console.error(`No Series ID`)
     try {
         const response = await axios.get(`https://api.themoviedb.org/3/tv/${series_id}/external_ids`,{
                 headers: {
@@ -124,6 +124,6 @@ export async function getSpecifiedSerieSocialLinks(series_id) {
 
         return responseData
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }

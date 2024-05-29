@@ -39,7 +39,7 @@ import { Scrollbar } from 'swiper/modules'
 import 'swiper/scss'
 import 'swiper/scss/scrollbar'
 
-const props = defineProps(['data', 'type', 'slide_quantity'])
+defineProps(['data', 'type', 'slide_quantity'])
 const modules = [Scrollbar]
 const route = useRoute()
 </script>
